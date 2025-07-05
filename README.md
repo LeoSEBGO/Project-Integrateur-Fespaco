@@ -83,10 +83,6 @@ cd fespaco-website
 ```bash
 # Ouvrir directement le fichier HTML
 open templates/index.html
-
-# Ou utiliser un serveur local
-python -m http.server 8000
-# Puis aller sur http://localhost:8000
 ```
 
 ## 👥 Équipe de Développement
@@ -133,13 +129,6 @@ style: amélioration du CSS responsive
 - Déploiement automatique sur GitHub Pages
 - Déclenchement sur push vers main
 - URL de production : `https://votre-username.github.io/fespaco-website`
-
-## Métriques de Qualité
-
-- **Performance** : Score Lighthouse > 90
-- **Accessibilité** : Conformité WCAG 2.1 AA
-- **SEO** : Optimisation pour les moteurs de recherche
-- **Responsive** : Support mobile/tablette/desktop
 
 ## À Propos du FESPACO
 
