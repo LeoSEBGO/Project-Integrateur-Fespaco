@@ -1,0 +1,240 @@
+/* FESPACO - Styles principaux */
+/* Variables CSS et styles de base */
+
+:root {
+    /* Couleurs principales */
+    --primary-gold: #D4AF37;
+    --primary-red: #B8860B;
+    --dark-bg: #1a1a1a;
+    --light-bg: #f8f9fa;
+    --white: #ffffff;
+    --black: #000000;
+    
+    /* Gradients */
+    --gradient-gold: linear-gradient(135deg, #D4AF37 0%, #FFD700 50%, #B8860B 100%);
+    --gradient-red: linear-gradient(135deg, #8B0000 0%, #DC143C 50%, #B22222 100%);
+    --gradient-dark: linear-gradient(135deg, #1a1a1a 0%, #2d1810 50%, #1a1a1a 100%);
+    
+    /* Ombres */
+    --shadow-gold: 0 10px 30px rgba(212, 175, 55, 0.3);
+    --shadow-hover: 0 20px 60px rgba(212, 175, 55, 0.4);
+    --shadow-card: 0 5px 15px rgba(0, 0, 0, 0.1);
+    
+    /* Transitions */
+    --transition-fast: 0.2s ease;
+    --transition-normal: 0.3s ease;
+    --transition-slow: 0.5s ease;
+    
+    /* Polices */
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Poppins', sans-serif;
+    
+    /* Tailles */
+    --border-radius: 10px;
+    --border-radius-large: 20px;
+    --border-radius-round: 50px;
+    
+    /* Espacements */
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+    --spacing-xxl: 3rem;
+}
+
+/* Reset et styles de base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    line-height: 1.6;
+    color: var(--white);
+    background: var(--dark-bg);
+    overflow-x: hidden;
+}
+
+/* Typographie */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: var(--spacing-md);
+}
+
+h1 { font-size: 3.5rem; }
+h2 { font-size: 2.5rem; }
+h3 { font-size: 2rem; }
+h4 { font-size: 1.5rem; }
+h5 { font-size: 1.25rem; }
+h6 { font-size: 1rem; }
+
+p {
+    margin-bottom: var(--spacing-md);
+    line-height: 1.8;
+}
+
+a {
+    color: var(--primary-gold);
+    text-decoration: none;
+    transition: var(--transition-normal);
+}
+
+a:hover {
+    color: #FFD700;
+}
+
+/* Utilitaires */
+.container-fluid {
+    padding: 0 var(--spacing-md);
+}
+
+.section-padding {
+    padding: var(--spacing-xxl) 0;
+}
+
+.text-gradient-gold {
+    background: var(--gradient-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.text-gradient-red {
+    background: var(--gradient-red);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.bg-gradient-gold {
+    background: var(--gradient-gold);
+}
+
+.bg-gradient-red {
+    background: var(--gradient-red);
+}
+
+.bg-gradient-dark {
+    background: var(--gradient-dark);
+}
+
+/* Animations de base */
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.fade-in-left {
+    opacity: 0;
+    transform: translateX(-30px);
+    animation: fadeInLeft 0.8s ease-out forwards;
+}
+
+.fade-in-right {
+    opacity: 0;
+    transform: translateX(30px);
+    animation: fadeInRight 0.8s ease-out forwards;
+}
+
+/* Délais d'animation */
+.delay-1 { animation-delay: 0.2s; }
+.delay-2 { animation-delay: 0.4s; }
+.delay-3 { animation-delay: 0.6s; }
+.delay-4 { animation-delay: 0.8s; }
+.delay-5 { animation-delay: 1s; }
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInLeft {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    h1 { font-size: 3rem; }
+    h2 { font-size: 2.2rem; }
+    h3 { font-size: 1.8rem; }
+}
+
+@media (max-width: 768px) {
+    h1 { font-size: 2.5rem; }
+    h2 { font-size: 2rem; }
+    h3 { font-size: 1.5rem; }
+    
+    .section-padding {
+        padding: var(--spacing-xl) 0;
+    }
+}
+
+@media (max-width: 576px) {
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.8rem; }
+    h3 { font-size: 1.3rem; }
+    
+    .container-fluid {
+        padding: 0 var(--spacing-sm);
+    }
+}
+
+/* Scrollbar personnalisée */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--dark-bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--gradient-gold);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #FFD700;
+}
+
+/* Sélection de texte */
+::selection {
+    background: var(--primary-gold);
+    color: var(--dark-bg);
+}
+
+::-moz-selection {
+    background: var(--primary-gold);
+    color: var(--dark-bg);
+} 

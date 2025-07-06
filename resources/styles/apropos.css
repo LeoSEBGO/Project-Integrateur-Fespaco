@@ -1,0 +1,374 @@
+/* FESPACO - Styles spécifiques à la page À propos */
+
+/* Hero Section À propos */
+.hero-section-about {
+    min-height: 60vh;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d1810 50%, #1a1a1a 100%);
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.hero-section-about::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="film-strip" width="20" height="100" patternUnits="userSpaceOnUse"><rect width="20" height="100" fill="transparent"/><rect x="0" y="10" width="20" height="10" fill="%23D4AF37" opacity="0.1"/><rect x="0" y="30" width="20" height="10" fill="%23D4AF37" opacity="0.1"/><rect x="0" y="50" width="20" height="10" fill="%23D4AF37" opacity="0.1"/><rect x="0" y="70" width="20" height="10" fill="%23D4AF37" opacity="0.1"/><rect x="0" y="90" width="20" height="10" fill="%23D4AF37" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23film-strip)"/></svg>');
+    animation: slide-film 30s linear infinite;
+}
+
+/* Timeline 3D */
+.timeline-3d {
+    position: relative;
+    padding: var(--spacing-xl) 0;
+}
+
+.timeline-3d::before {
+    content: '';
+    position: absolute;
+    left: 30px;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: var(--gradient-gold);
+    border-radius: 2px;
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: var(--spacing-xxl);
+    padding-left: 80px;
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: all 0.6s ease;
+}
+
+.timeline-item.animate {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.timeline-year {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 60px;
+    height: 60px;
+    background: var(--gradient-gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--dark-bg);
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+    border: 4px solid var(--dark-bg);
+    z-index: 2;
+}
+
+.timeline-content {
+    background: rgba(26, 26, 26, 0.8);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    border-radius: var(--border-radius-large);
+    padding: var(--spacing-xl);
+    backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.timeline-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.1), transparent);
+    transition: left 0.6s ease;
+}
+
+.timeline-content:hover::before {
+    left: 100%;
+}
+
+.timeline-content:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(212, 175, 55, 0.3);
+    border-color: var(--primary-gold);
+}
+
+.timeline-content h4 {
+    color: var(--primary-gold);
+    margin-bottom: var(--spacing-md);
+    font-size: 1.3rem;
+}
+
+.timeline-content p {
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+/* Mission Cards 3D */
+.mission-card-3d {
+    background: rgba(26, 26, 26, 0.8);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    border-radius: var(--border-radius-large);
+    padding: var(--spacing-xxl);
+    backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+}
+
+.mission-card-3d::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.1), transparent);
+    transition: left 0.6s ease;
+}
+
+.mission-card-3d:hover::before {
+    left: 100%;
+}
+
+.mission-card-3d:hover {
+    transform: translateY(-10px) rotateX(5deg) rotateY(5deg);
+    box-shadow: 0 25px 60px rgba(212, 175, 55, 0.3);
+    border-color: var(--primary-gold);
+}
+
+.mission-items {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xl);
+}
+
+.mission-item {
+    text-align: center;
+    padding: var(--spacing-lg);
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: var(--border-radius);
+    transition: all 0.3s ease;
+}
+
+.mission-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-5px);
+}
+
+.mission-item i {
+    color: var(--primary-gold);
+    margin-bottom: var(--spacing-md);
+    transition: all 0.3s ease;
+}
+
+.mission-item:hover i {
+    transform: scale(1.2) rotateY(360deg);
+    color: #FFD700;
+}
+
+.mission-item h4 {
+    color: var(--white);
+    margin-bottom: var(--spacing-md);
+}
+
+.mission-item p {
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+/* Vision Cards */
+.vision-card {
+    background: rgba(26, 26, 26, 0.8);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    border-radius: var(--border-radius-large);
+    padding: var(--spacing-xl);
+    transition: all 0.4s ease;
+    backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+}
+
+.vision-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.1), transparent);
+    transition: left 0.6s ease;
+}
+
+.vision-card:hover::before {
+    left: 100%;
+}
+
+.vision-card:hover {
+    transform: translateY(-10px) rotateX(5deg) rotateY(5deg);
+    box-shadow: 0 25px 60px rgba(212, 175, 55, 0.3);
+    border-color: var(--primary-gold);
+}
+
+.vision-card .card-body {
+    padding: var(--spacing-lg);
+}
+
+.vision-card i {
+    color: var(--primary-gold);
+    margin-bottom: var(--spacing-lg);
+    transition: all 0.3s ease;
+}
+
+.vision-card:hover i {
+    transform: scale(1.2) rotateY(360deg);
+    color: #FFD700;
+}
+
+.vision-card h5 {
+    color: var(--white);
+    margin-bottom: var(--spacing-md);
+    font-size: 1.3rem;
+}
+
+.vision-card p {
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+/* Section Vision */
+.vision-section {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    padding: var(--spacing-xxl) 0;
+}
+
+.vision-section h2 {
+    color: var(--dark-bg);
+    margin-bottom: var(--spacing-xxl);
+}
+
+/* Statistiques de la page À propos */
+.stats-about {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d1810 50%, #1a1a1a 100%);
+    padding: var(--spacing-xxl) 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.stats-about::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><polygon points="0,0 100,20 100,100 0,80" fill="rgba(212,175,55,0.1)"/></svg>');
+}
+
+.stats-about .stat-item {
+    text-align: center;
+    padding: var(--spacing-lg);
+    transition: all 0.3s ease;
+}
+
+.stats-about .stat-item:hover {
+    transform: scale(1.05);
+}
+
+.stats-about .stat-item h3 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-gold);
+    display: block;
+    text-shadow: 0 0 15px rgba(212, 175, 55, 0.6);
+    font-family: var(--font-heading);
+    margin-bottom: var(--spacing-sm);
+}
+
+.stats-about .stat-item p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1rem;
+    opacity: 0.9;
+    margin-bottom: 0;
+}
+
+/* Animations spécifiques à la page À propos */
+@keyframes slide-film {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+@keyframes counter-up {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive pour la page À propos */
+@media (max-width: 768px) {
+    .timeline-3d::before {
+        left: 15px;
+    }
+    
+    .timeline-item {
+        padding-left: 60px;
+    }
+    
+    .timeline-year {
+        width: 50px;
+        height: 50px;
+        font-size: 1rem;
+    }
+    
+    .mission-card-3d {
+        padding: var(--spacing-xl);
+    }
+    
+    .mission-items {
+        gap: var(--spacing-lg);
+    }
+    
+    .stats-about .stat-item h3 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-section-about {
+        min-height: 50vh;
+    }
+    
+    .timeline-content {
+        padding: var(--spacing-lg);
+    }
+    
+    .mission-card-3d {
+        padding: var(--spacing-lg);
+    }
+    
+    .vision-card {
+        margin-bottom: var(--spacing-lg);
+    }
+    
+    .stats-about .stat-item h3 {
+        font-size: 1.8rem;
+    }
+    
+    .stats-about .stat-item p {
+        font-size: 0.9rem;
+    }
+} 

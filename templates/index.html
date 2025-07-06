@@ -3,93 +3,118 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FESPACO - Festival Panafricain du Cinéma</title>
-    <meta name="description" content="Festival Panafricain du Cinéma et de la Télévision de Ouagadougou - Le plus grand festival de cinéma d'Afrique">
+    <title>FESPACO - Festival Panafricain du Cinéma et de la Télévision</title>
+    <meta name="description" content="Le plus grand festival de cinéma africain. Découvrez les films, événements et actualités du FESPACO 2025 à Ouagadougou, Burkina Faso.">
     
-    <!-- Bootstrap CSS -->
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <!-- Custom CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../resources/styles/main.css">
     <link rel="stylesheet" href="../resources/styles/components.css">
-    <link rel="stylesheet" href="../resources/styles/effects.css">
+    <link rel="stylesheet" href="../resources/styles/index.css">
 </head>
 <body>
+    <!-- Skip to content -->
+    <a href="#main-content" class="skip-link">Skip to content</a>
+
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="#home">
-                <i class="fas fa-film me-2"></i>
+            <a class="navbar-brand fw-bold" href="#accueil">
                 FESPACO
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+            
+            <div class="d-flex d-lg-none align-items-center">
+                <a href="#billets" class="btn btn-outline-warning btn-sm me-2">Billets</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="index.html">Accueil</a>
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="#accueil">Accueil</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            FESPACO
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="apropos.html">Historique</a></li>
+                            <li><a class="dropdown-item" href="apropos.html">Évolution</a></li>
+                        </ul>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="apropos.html">À Propos</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            Édition 2025
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="evenements.html">Découverte</a></li>
+                            <li><a class="dropdown-item" href="#billets">Réserver Un Billet</a></li>
+                            <li><a class="dropdown-item" href="#participation">Participer Au Fespaco</a></li>
+                            <li><a class="dropdown-item" href="evenements.html">Innovations</a></li>
+                            <li><a class="dropdown-item" href="#infos">Infos Pratiques</a></li>
+                            <li><a class="dropdown-item" href="evenements.html">Contenu Du Festival</a></li>
+                            <li><a class="dropdown-item" href="#conseils">Bon à Savoir</a></li>
+                        </ul>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="evenements.html">Événements</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="partenaires.html">Partenaires</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact.html">Contact</a>
-                    </li>
+                    <li class="nav-item"><a class="nav-link" href="#efespaco">e-FESPACO</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#actualites">Actualités</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#documents">Documents</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
                 </ul>
+                <div class="d-none d-lg-flex gap-2">
+                    <a href="#billets" class="btn btn-outline-warning">Acheter Billets</a>
+                    <a href="#acreditation" class="btn btn-warning">Accréditation</a>
+                </div>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section with 3D Effects -->
-    <section id="home" class="hero-section">
-        <div class="hero-3d-container">
-            <div class="hero-content">
-                <div class="container">
-                    <div class="row align-items-center min-vh-100">
-                        <div class="col-lg-6">
-                            <h1 class="display-2 fw-bold text-white mb-4 fade-in-up">
-                                FESPACO
-                            </h1>
-                            <h2 class="h3 text-warning mb-4 fade-in-up delay-1">
-                                Festival Panafricain du Cinéma et de la Télévision
-                            </h2>
-                            <p class="lead text-light mb-5 fade-in-up delay-2">
-                                Le plus grand festival de cinéma d'Afrique célèbre la richesse 
-                                et la diversité du cinéma africain depuis 1969.
-                            </p>
-                            <div class="fade-in-up delay-3">
-                                <a href="evenements.html" class="btn btn-warning btn-lg me-3 floating-btn">
-                                    <i class="fas fa-calendar-alt me-2"></i>
-                                    Découvrir les Événements
-                                </a>
-                                <a href="apropos.html" class="btn btn-outline-light btn-lg floating-btn">
-                                    <i class="fas fa-info-circle me-2"></i>
-                                    En Savoir Plus
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="hero-visual-3d">
-                                <div class="film-reel-3d">
-                                    <i class="fas fa-film"></i>
+    <!-- News Banner -->
+    <div class="news-banner">
+        <div class="container">
+            <div class="d-flex align-items-center">
+                <span class="badge bg-warning text-dark me-3">News</span>
+                <marquee class="text-white">La vitrine du cinéma africain se tient bientôt ! 29ème édition du FESPACO - 22 Février au 1er Mars 2025</marquee>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="accueil" class="hero-section">
+        <div class="hero-slider">
+            <div class="slide active">
+                <div class="slide-background"></div>
+                <div class="slide-content">
+                    <div class="container">
+                        <div class="row align-items-center min-vh-100">
+                            <div class="col-lg-8">
+                                <div class="hero-content">
+                                    <h1 class="hero-title">
+                                        FESTIVAL PANAFRICAIN DU CINÉMA<br>
+                                        ET DE LA TÉLÉVISION
+                                    </h1>
+                                    <h2 class="hero-subtitle">29ème ÉDITION</h2>
+                                    <h3 class="hero-dates">Du 22 Février au 1er Mars 2025</h3>
+                                    <p class="hero-patronage">
+                                        Sous le Très Haut Patronage de Son Excellence Monsieur le Président du Faso,<br>
+                                        le Capitaine Ibrahim TRAORÉ
+                                    </p>
+                                    <div class="hero-actions">
+                                        <a href="#billets" class="btn btn-warning btn-lg">Acheter Ticket</a>
+                                        <a href="#acreditation" class="btn btn-outline-light btn-lg">Accréditation</a>
+                                    </div>
                                 </div>
-                                <div class="floating-elements">
-                                    <div class="floating-element" style="--delay: 0s;">
-                                        <i class="fas fa-camera"></i>
-                                    </div>
-                                    <div class="floating-element" style="--delay: 1s;">
-                                        <i class="fas fa-video"></i>
-                                    </div>
-                                    <div class="floating-element" style="--delay: 2s;">
-                                        <i class="fas fa-star"></i>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="hero-visual">
+                                    <div class="festival-emblem">
+                                        <i class="fas fa-film"></i>
                                     </div>
                                 </div>
                             </div>
@@ -100,46 +125,19 @@
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section class="py-5 bg-light">
+    <!-- Theme Section -->
+    <section class="theme-section">
         <div class="container">
-            <div class="row text-center mb-5">
-                <div class="col-12">
-                    <h2 class="display-4 fw-bold mb-3">Pourquoi le FESPACO ?</h2>
-                    <p class="lead text-muted">Un festival qui célèbre l'excellence du cinéma africain</p>
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h2 class="section-title">Thème de la 29ème édition</h2>
+                    <h3 class="theme-text">« Cinéma africain, transformation digitale et autonomisation des jeunes »</h3>
+                    <a href="#participation" class="btn btn-warning">Je participe !</a>
                 </div>
-            </div>
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="card h-100 shadow-sm hover-3d">
-                        <div class="card-body text-center">
-                            <div class="feature-icon mb-4">
-                                <i class="fas fa-globe-africa fa-3x text-warning"></i>
-                            </div>
-                            <h5 class="card-title">Cinéma Panafricain</h5>
-                            <p class="card-text">Promotion et valorisation du cinéma africain à l'échelle continentale et internationale.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card h-100 shadow-sm hover-3d">
-                        <div class="card-body text-center">
-                            <div class="feature-icon mb-4">
-                                <i class="fas fa-users fa-3x text-warning"></i>
-                            </div>
-                            <h5 class="card-title">Échanges Culturels</h5>
-                            <p class="card-text">Rencontres entre professionnels du cinéma et échanges culturels enrichissants.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card h-100 shadow-sm hover-3d">
-                        <div class="card-body text-center">
-                            <div class="feature-icon mb-4">
-                                <i class="fas fa-trophy fa-3x text-warning"></i>
-                            </div>
-                            <h5 class="card-title">Excellence Artistique</h5>
-                            <p class="card-text">Reconnaissance et récompense des meilleures œuvres cinématographiques africaines.</p>
+                <div class="col-lg-6">
+                    <div class="theme-visual">
+                        <div class="theme-icon">
+                            <i class="fas fa-video"></i>
                         </div>
                     </div>
                 </div>
@@ -147,79 +145,380 @@
         </div>
     </section>
 
-    <!-- Stats Section -->
-    <section class="py-5 bg-dark text-white">
+    <!-- Digital Revolution Section -->
+    <section class="digital-revolution-section">
         <div class="container">
-            <div class="row text-center">
-                <div class="col-md-3">
-                    <div class="stat-item">
-                        <h3 class="display-4 fw-bold text-warning counter" data-count="50">0</h3>
-                        <p class="lead">Années d'Existence</p>
-                    </div>
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <h2 class="text-white mb-4">Rejoignez la révolution numérique du FESPACO !</h2>
+                    <p class="text-white mb-4">
+                        Réservez vos billets, achetez vos accréditations et connectez-vous avec des cinéastes du monde entier via la plateforme e-FESPACO. Ne manquez pas l'opportunité de propulser votre carrière cinématographique au niveau international.
+                    </p>
                 </div>
-                <div class="col-md-3">
-                    <div class="stat-item">
-                        <h3 class="display-4 fw-bold text-warning counter" data-count="54">0</h3>
-                        <p class="lead">Pays Participants</p>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="stat-item">
-                        <h3 class="display-4 fw-bold text-warning counter" data-count="1000">0</h3>
-                        <p class="lead">Films Présentés</p>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="stat-item">
-                        <h3 class="display-4 fw-bold text-warning counter" data-count="100000">0</h3>
-                        <p class="lead">Visiteurs</p>
-                    </div>
+                <div class="col-lg-4 text-lg-end">
+                    <a href="#efespaco" class="btn btn-warning btn-lg">
+                        Accédez au e-FESPACO
+                    </a>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Main Content -->
+    <main id="main-content" class="main-content">
+        <!-- Festival Info -->
+        <section class="festival-info">
+            <div class="container">
+                <div class="row text-center">
+                    <div class="col-12">
+                        <h2 class="section-title">FESTIVAL PANAFRICAIN DU CINÉMA ET DE LA TÉLÉVISION</h2>
+                        <h3 class="theme-subtitle">Thème de la 29ème édition: « Cinéma africain, transformation digitale et autonomisation des jeunes »</h3>
+                        <a href="#participation" class="btn btn-warning btn-lg">Je participe !</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Edition Details -->
+        <section class="edition-details">
+            <div class="container">
+                <div class="row text-center">
+                    <div class="col-12">
+                        <h2 class="edition-title">29ème ÉDITION</h2>
+                        <h3 class="edition-dates">Du 22 Février au 1er Mars 2025</h3>
+                        <p class="edition-patronage">
+                            Sous le Très Haut Patronage de Son Excellence Monsieur le Président du Faso,<br>
+                            le Capitaine Ibrahim TRAORÉ
+                        </p>
+                        <a href="#billets" class="btn btn-warning btn-lg">Acheter ticket</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- B2B Opportunities -->
+        <section class="b2b-section">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <h2 class="text-white mb-4">Opportunités B2B au FESPACO 2025</h2>
+                        <p class="text-white mb-4">
+                            <strong>Rencontrez des acteurs clés</strong><br>
+                            Participez à des sessions B2B exclusives et boostez vos collaborations avec des leaders du cinéma africain.
+                        </p>
+                        <h4 class="text-white mb-3">Accédez à de nouveaux marchés</h4>
+                        <p class="text-white mb-4">
+                            Ne manquez pas cette chance de développer votre réseau et d'explorer de nouvelles opportunités.
+                        </p>
+                        <a href="#networking" class="btn btn-warning">Rejoignez-nous</a>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="b2b-visual">
+                            <div class="b2b-icon">
+                                <i class="fas fa-handshake"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Documents Section -->
+        <section class="documents-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 mb-4">
+                        <div class="document-card">
+                            <div class="document-icon">
+                                <i class="fas fa-calendar-alt"></i>
+                            </div>
+                            <div class="document-content">
+                                <h4>Programme du FESPACO</h4>
+                                <a href="#" class="btn btn-outline-warning">Télécharger</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 mb-4">
+                        <div class="document-card">
+                            <div class="document-icon">
+                                <i class="fas fa-film"></i>
+                            </div>
+                            <div class="document-content">
+                                <h4>Catalogue films</h4>
+                                <a href="#" class="btn btn-outline-warning">Télécharger</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Join Us Section -->
+        <section class="join-us-section">
+            <div class="container text-center">
+                <h2 class="text-white mb-4">Rejoignez-nous au FESPACO 2025 !</h2>
+                <p class="text-white mb-4">
+                    Ne ratez pas l'occasion de faire partie du plus grand festival de cinéma africain.<br>
+                    Réservez votre billet aujourd'hui !
+                </p>
+                <div class="join-actions">
+                    <a href="#billets" class="btn btn-warning btn-lg me-3">Réserver un billet</a>
+                    <a href="#visual" class="btn btn-outline-light btn-lg">Visuel officiel</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ticket CTA -->
+        <section class="ticket-cta">
+            <div class="container text-center">
+                <h2 class="text-white mb-4">Votre place vous attend, prenez votre ticket maintenant !</h2>
+                <div class="ticket-actions">
+                    <a href="#billets" class="btn btn-warning btn-lg me-3">Acheter ticket</a>
+                    <a href="#acreditation" class="btn btn-outline-light btn-lg">Accréditation</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Countries Section -->
+        <section class="countries-section">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="section-title">Un tour d'horizon des pays participants au FESPACO 2025</h2>
+                    <p class="section-subtitle">Explore la diversité culturelle et économique des pays exposants au FESPACO.</p>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 mb-4">
+                        <div class="country-card">
+                            <h4>Sénégal</h4>
+                            <p>Connu pour ses grands réalisateurs comme Ousmane Sembène, le Sénégal reflète une culture cinématographique riche et colorée.</p>
+                            <a href="#" class="btn btn-outline-warning">En savoir plus</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 mb-4">
+                        <div class="country-card">
+                            <h4>Nigeria</h4>
+                            <p>Nollywood, l'industrie cinématographique nigériane, apporte sa créativité et son dynamisme au festival.</p>
+                            <a href="#" class="btn btn-outline-warning">En savoir plus</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 mb-4">
+                        <div class="country-card">
+                            <h4>Maroc</h4>
+                            <p>Le cinéma marocain, riche en diversité et en talent, continue de briller sur la scène africaine et internationale.</p>
+                            <a href="#" class="btn btn-outline-warning">En savoir plus</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Social Feed -->
+        <section class="social-feed-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <h2 class="section-title">Actualités Facebook</h2>
+                        <div class="facebook-feed">
+                            <div class="feed-header">
+                                <h4>Festival Panafricain du Cinéma et de la Télévision - FESPACO</h4>
+                                <span class="feed-time">2 heures il y a</span>
+                            </div>
+                            <div class="feed-stats">
+                                <span class="like-count">31</span>
+                                <span class="comment-count">5</span>
+                            </div>
+                            <div class="feed-actions">
+                                <a href="#" class="btn btn-outline-primary">Nous voir sur Facebook</a>
+                                <a href="#" class="btn btn-outline-secondary">Partager</a>
+                            </div>
+                            <div class="feed-quote">
+                                <p>"En chaque création cinématographique, il y a une part de notre culture qui se transmet aux générations futures."</p>
+                                <footer>
+                                    <strong>Alimata Salembéré</strong><br>
+                                    <small>Ministre de la Communication et de la Culture</small>
+                                </footer>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="social-sidebar">
+                            <h4>Vous êtes passionné de cinéma ?</h4>
+                            <p>Ne manquez pas le prochain FESPACO à Ouagadougou !</p>
+                            <div class="social-links">
+                                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                                <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                                <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Preview -->
+        <section class="gallery-preview">
+            <div class="container">
+                <h2 class="section-title text-center mb-5">Revivez les moments forts du FESPACO</h2>
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 mb-4">
+                        <div class="gallery-item">
+                            <div class="gallery-image">
+                                <i class="fas fa-image"></i>
+                            </div>
+                            <div class="gallery-info">
+                                <h5>Ouverture de la 29è édition</h5>
+                                <a href="#" class="btn btn-sm btn-outline-warning">Voir plus de photos</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mb-4">
+                        <div class="gallery-item">
+                            <div class="gallery-image">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="gallery-info">
+                                <h5>Visite des autorités</h5>
+                                <a href="#" class="btn btn-sm btn-outline-warning">Voir plus de photos</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mb-4">
+                        <div class="gallery-item">
+                            <div class="gallery-image">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="gallery-info">
+                                <h5>Nuit des partenaires</h5>
+                                <a href="#" class="btn btn-sm btn-outline-warning">Voir plus de photos</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mb-4">
+                        <div class="gallery-item">
+                            <div class="gallery-image">
+                                <i class="fas fa-trophy"></i>
+                            </div>
+                            <div class="gallery-info">
+                                <h5>Nuit du Cinéaste Méritant</h5>
+                                <a href="#" class="btn btn-sm btn-outline-warning">Voir plus de photos</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sponsors -->
+        <section class="sponsors-section">
+            <div class="container">
+                <h2 class="section-title text-center mb-5">Nos sponsors et partenaires</h2>
+                <div class="sponsors-grid">
+                    <div class="sponsor-logo">
+                        <div class="logo-placeholder">
+                            <i class="fas fa-building"></i>
+                        </div>
+                    </div>
+                    <div class="sponsor-logo">
+                        <div class="logo-placeholder">
+                            <i class="fas fa-film"></i>
+                        </div>
+                    </div>
+                    <div class="sponsor-logo">
+                        <div class="logo-placeholder">
+                            <i class="fas fa-tv"></i>
+                        </div>
+                    </div>
+                    <div class="sponsor-logo">
+                        <div class="logo-placeholder">
+                            <i class="fas fa-camera"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- News Section -->
+        <section class="news-section">
+            <div class="container">
+                <h2 class="section-title">Actualités</h2>
+                <div class="row">
+                    <div class="col-lg-6 mb-4">
+                        <div class="news-card">
+                            <div class="news-date">30 janvier 2025</div>
+                            <h4>L'Ambassadeur du Maroc au FESPACO</h4>
+                            <a href="#" class="btn btn-outline-warning">Lire plus</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 mb-4">
+                        <div class="news-card">
+                            <div class="news-date">30 janvier 2025</div>
+                            <h4>Installation d'un nouveau directeur artistique au FESPACO</h4>
+                            <a href="#" class="btn btn-outline-warning">Lire plus</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <!-- Footer -->
-    <footer class="bg-dark text-white py-5">
+    <footer class="footer">
         <div class="container">
             <div class="row">
-                <div class="col-lg-4">
-                    <h5>FESPACO</h5>
-                    <p>Festival Panafricain du Cinéma et de la Télévision de Ouagadougou</p>
-                </div>
-                <div class="col-lg-4">
-                    <h5>Liens Rapides</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="apropos.html" class="text-light">À Propos</a></li>
-                        <li><a href="evenements.html" class="text-light">Événements</a></li>
-                        <li><a href="partenaires.html" class="text-light">Partenaires</a></li>
-                        <li><a href="contact.html" class="text-light">Contact</a></li>
+                <div class="col-lg-3 mb-4">
+                    <h6>Découvrez-nous</h6>
+                    <ul class="footer-links">
+                        <li><a href="apropos.html">Historique</a></li>
+                        <li><a href="apropos.html">Évolution</a></li>
+                        <li><a href="#equipe">Équipe</a></li>
+                        <li><a href="#actualites">Actualités</a></li>
                     </ul>
                 </div>
-                <div class="col-lg-4">
-                    <h5>Suivez-nous</h5>
-                    <div class="social-links">
-                        <a href="#" class="text-light me-3"><i class="fab fa-facebook fa-2x"></i></a>
-                        <a href="#" class="text-light me-3"><i class="fab fa-twitter fa-2x"></i></a>
-                        <a href="#" class="text-light me-3"><i class="fab fa-instagram fa-2x"></i></a>
-                        <a href="#" class="text-light"><i class="fab fa-youtube fa-2x"></i></a>
-                    </div>
+                <div class="col-lg-3 mb-4">
+                    <h6>Liens utiles</h6>
+                    <ul class="footer-links">
+                        <li><a href="#infos">Infos Pratiques</a></li>
+                        <li><a href="#conseils">Bon à Savoir</a></li>
+                        <li><a href="#documents">Documents</a></li>
+                        <li><a href="evenements.html">Innovations</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 mb-4">
+                    <h6>Services</h6>
+                    <ul class="footer-links">
+                        <li><a href="#billets">Billetterie</a></li>
+                        <li><a href="#acreditation">Accréditation</a></li>
+                        <li><a href="#efespaco">e-FESPACO</a></li>
+                        <li><a href="#services">Services</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 mb-4">
+                    <h6>Prendre contact</h6>
+                    <p>Une question ou un commentaire ?<br>
+                    Nous serions ravis de vous entendre</p>
+                    <a href="contact.html" class="btn btn-outline-warning">Contactez nous</a>
                 </div>
             </div>
-            <hr class="mt-4">
-            <div class="row">
-                <div class="col-12 text-center">
-                    <p>&copy; 2024 FESPACO. Tous droits réservés.</p>
+            <hr class="footer-divider">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="copyright">Copyright FESPACO 2025, conçu par l'équipe FESPACO</p>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- Bootstrap JS -->
+    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Custom JS -->
-    <script src="../resources/scripts/main.js"></script>
-    <script src="../resources/scripts/animations.js"></script>
-    <script src="../resources/scripts/interactions.js"></script>
+    <script src="../resources/scripts/index.js"></script>
 </body>
 </html> 
