@@ -1,424 +1,293 @@
-/* FESPACO - JavaScript pour la page Partenaires */
+/* FESPACO - JavaScript de la page partenaires refactorisé */
+/* Effets modernes avec filtrage des catégories et animations */
 
-class FespacoPartnersPage {
-    constructor() {
-        this.partners = [];
-        this.currentCategory = 'tous';
-        this.init();
+(function() {
+    'use strict';
+
+    // Configuration
+    const CONFIG = {
+        ANIMATION_DURATION: 800,
+        FILTER_DELAY: 300,
+        SCROLL_THRESHOLD: 100
+    };
+
+    // Variables globales
+    let currentCategory = 'all';
+    let isAnimating = false;
+
+    // Initialisation
+    document.addEventListener('DOMContentLoaded', function() {
+        initializePartnersPage();
+    });
+
+    function initializePartnersPage() {
+        initializeCategoryFilter();
+        initializeScrollAnimations();
+        initializePartnerCards();
+        initializeTestimonials();
+        initializeLevelCards();
+        initializePerformanceOptimizations();
     }
 
-    init() {
-        this.setupCategoryFilters();
-        this.setupPartnerCards();
-        this.setupScrollAnimations();
-        this.setupTestimonials();
-        this.loadPartners();
-    }
+    // === Filtrage des catégories ===
+    function initializeCategoryFilter() {
+        const categoryButtons = document.querySelectorAll('.category-btn');
+        const partnerCards = document.querySelectorAll('.partner-card');
 
-    // Configuration des filtres de catégories
-    setupCategoryFilters() {
-        const categoryBtns = document.querySelectorAll('.category-btn');
-        
-        categoryBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                // Mise à jour des boutons actifs
-                categoryBtns.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
+        categoryButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                if (isAnimating) return;
                 
-                // Mise à jour de la catégorie
-                this.currentCategory = btn.dataset.category;
-                
-                // Filtrage et affichage
-                this.filterPartners();
+                const category = this.getAttribute('data-category');
+                if (category === currentCategory) return;
+
+                // Mettre à jour l'état actif
+                categoryButtons.forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+
+                // Filtrer les cartes
+                filterPartners(category, partnerCards);
+                currentCategory = category;
             });
         });
     }
 
-    // Configuration des cartes de partenaires
-    setupPartnerCards() {
-        document.addEventListener('click', (e) => {
-            if (e.target.closest('.partner-card')) {
-                const card = e.target.closest('.partner-card');
-                this.animatePartnerCard(card);
+    function filterPartners(category, cards) {
+        isAnimating = true;
+
+        cards.forEach((card, index) => {
+            const cardCategory = card.getAttribute('data-category');
+            const shouldShow = category === 'all' || cardCategory === category;
+
+            // Animation de sortie
+            if (!shouldShow) {
+                card.style.transform = 'scale(0.8)';
+                card.style.opacity = '0';
+                setTimeout(() => {
+                    card.style.display = 'none';
+                }, CONFIG.FILTER_DELAY);
+            } else {
+                // Animation d'entrée
+                card.style.display = 'block';
+                setTimeout(() => {
+                    card.style.transform = 'scale(1)';
+                    card.style.opacity = '1';
+                }, index * 100);
             }
         });
-    }
 
-    // Animation des cartes de partenaires
-    animatePartnerCard(card) {
-        const logo = card.querySelector('.partner-logo');
-        
-        // Animation de rotation du logo
-        if (logo) {
-            logo.classList.add('rotating');
-            setTimeout(() => {
-                logo.classList.remove('rotating');
-            }, 600);
-        }
-        
-        // Effet de clic sur la carte
-        card.style.transform = 'translateY(-15px) rotateX(10deg) rotateY(10deg) scale(1.05)';
+        // Réinitialiser l'état d'animation
         setTimeout(() => {
-            card.style.transform = '';
-        }, 300);
+            isAnimating = false;
+        }, cards.length * 100 + CONFIG.FILTER_DELAY);
     }
 
-    // Animations au scroll
-    setupScrollAnimations() {
+    // === Animations au scroll ===
+    function initializeScrollAnimations() {
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
         };
-
+        
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    if (entry.target.classList.contains('partners-section')) {
-                        entry.target.classList.add('visible');
-                        this.animatePartnerCards(entry.target);
-                    } else if (entry.target.classList.contains('partner-card')) {
-                        entry.target.classList.add('entering');
+                    entry.target.classList.add('animate-in');
+                    
+                    // Animation spéciale pour les statistiques
+                    if (entry.target.classList.contains('stat-item')) {
+                        animateStatItem(entry.target);
                     }
                 }
             });
         }, observerOptions);
-
-        // Observer les sections et cartes
-        document.querySelectorAll('.partners-section, .partner-card').forEach(el => {
-            observer.observe(el);
-        });
-    }
-
-    // Animation en cascade des cartes de partenaires
-    animatePartnerCards(section) {
-        const cards = section.querySelectorAll('.partner-card');
         
-        cards.forEach((card, index) => {
-            setTimeout(() => {
-                card.classList.add('entering');
-            }, index * 100);
-        });
+        // Observer les éléments
+        const animatedElements = document.querySelectorAll('.partner-card, .level-card, .testimonial-card, .stat-item');
+        animatedElements.forEach(el => observer.observe(el));
     }
 
-    // Configuration des témoignages
-    setupTestimonials() {
-        const testimonialCards = document.querySelectorAll('.testimonial-card');
+    function animateStatItem(statItem) {
+        const number = statItem.querySelector('.stat-number');
+        const target = parseInt(number.textContent.replace(/\D/g, ''));
+        const suffix = number.textContent.replace(/\d/g, '');
         
-        testimonialCards.forEach((card, index) => {
-            // Animation décalée
-            card.style.animationDelay = `${index * 0.2}s`;
-            
-            // Effet de survol
-            card.addEventListener('mouseenter', () => {
-                card.style.transform = 'translateY(-10px) scale(1.02)';
-            });
-
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = 'translateY(0) scale(1)';
-            });
-        });
-    }
-
-    // Chargement des partenaires (données simulées)
-    loadPartners() {
-        this.partners = [
-            // Partenaires officiels
-            {
-                id: 1,
-                name: "UNESCO",
-                type: "Organisation Internationale",
-                category: "officiels",
-                description: "Soutien institutionnel et culturel au développement du cinéma africain",
-                logo: "unesco-logo.png",
-                link: "https://unesco.org"
-            },
-            {
-                id: 2,
-                name: "Union Africaine",
-                type: "Organisation Continentale",
-                category: "officiels",
-                description: "Promotion de l'intégration culturelle africaine",
-                logo: "ua-logo.png",
-                link: "https://au.int"
-            },
-            {
-                id: 3,
-                name: "Ministère de la Culture",
-                type: "Institution Gouvernementale",
-                category: "officiels",
-                description: "Soutien gouvernemental au festival et aux arts",
-                logo: "ministere-culture.png",
-                link: "#"
-            },
-            
-            // Partenaires médias
-            {
-                id: 4,
-                name: "Canal+ Afrique",
-                type: "Chaîne de Télévision",
-                category: "medias",
-                description: "Diffusion et promotion du cinéma africain",
-                logo: "canal-plus.png",
-                link: "https://canalplus.com"
-            },
-            {
-                id: 5,
-                name: "Africa24",
-                type: "Chaîne d'Information",
-                category: "medias",
-                description: "Couverture médiatique du festival",
-                logo: "africa24.png",
-                link: "https://africa24tv.com"
-            },
-            {
-                id: 6,
-                name: "Jeune Afrique",
-                type: "Magazine",
-                category: "medias",
-                description: "Couverture éditoriale et promotion",
-                logo: "jeune-afrique.png",
-                link: "https://jeuneafrique.com"
-            },
-            
-            // Partenaires techniques
-            {
-                id: 7,
-                name: "Kodak",
-                type: "Équipement Cinématographique",
-                category: "techniques",
-                description: "Fourniture d'équipements et support technique",
-                logo: "kodak.png",
-                link: "https://kodak.com"
-            },
-            {
-                id: 8,
-                name: "Arri",
-                type: "Matériel de Cinéma",
-                category: "techniques",
-                description: "Caméras et équipements de production",
-                logo: "arri.png",
-                link: "https://arri.com"
-            },
-            {
-                id: 9,
-                name: "Dolby",
-                type: "Technologies Audio",
-                category: "techniques",
-                description: "Solutions audio pour les projections",
-                logo: "dolby.png",
-                link: "https://dolby.com"
-            },
-            
-            // Partenaires financiers
-            {
-                id: 10,
-                name: "Bank of Africa",
-                type: "Institution Financière",
-                category: "financiers",
-                description: "Soutien financier aux productions",
-                logo: "boa.png",
-                link: "https://bank-of-africa.net"
-            },
-            {
-                id: 11,
-                name: "Orange",
-                type: "Télécommunications",
-                category: "financiers",
-                description: "Sponsor principal et connectivité",
-                logo: "orange.png",
-                link: "https://orange.com"
-            },
-            {
-                id: 12,
-                name: "Total Énergies",
-                type: "Énergie",
-                category: "financiers",
-                description: "Sponsor énergétique du festival",
-                logo: "total.png",
-                link: "https://totalenergies.com"
+        let current = 0;
+        const increment = target / 50;
+        
+        const timer = setInterval(() => {
+            current += increment;
+            if (current >= target) {
+                current = target;
+                clearInterval(timer);
             }
-        ];
-
-        this.displayPartners();
+            number.textContent = Math.floor(current) + suffix;
+        }, 50);
     }
 
-    // Filtrage des partenaires
-    filterPartners() {
-        const filteredPartners = this.currentCategory === 'tous' 
-            ? this.partners 
-            : this.partners.filter(partner => partner.category === this.currentCategory);
-        
-        this.displayPartners(filteredPartners);
-    }
-
-    // Affichage des partenaires
-    displayPartners(partnersToShow = this.partners) {
-        const sections = document.querySelectorAll('.partners-section');
-        
-        if (this.currentCategory === 'tous') {
-            this.displayAllCategories();
-        } else {
-            this.displaySingleCategory(partnersToShow);
-        }
-    }
-
-    // Affichage de toutes les catégories
-    displayAllCategories() {
-        const categories = {
-            officiels: { title: 'Partenaires Officiels', partners: [] },
-            medias: { title: 'Partenaires Médias', partners: [] },
-            techniques: { title: 'Partenaires Techniques', partners: [] },
-            financiers: { title: 'Partenaires Financiers', partners: [] }
-        };
-
-        // Regrouper par catégorie
-        this.partners.forEach(partner => {
-            if (categories[partner.category]) {
-                categories[partner.category].partners.push(partner);
-            }
-        });
-
-        // Générer le HTML
-        const mainContainer = document.querySelector('.partners-main');
-        if (mainContainer) {
-            mainContainer.innerHTML = Object.keys(categories).map(key => `
-                <section class="partners-section" data-category="${key}">
-                    <div class="container">
-                        <div class="section-header">
-                            <h2 class="section-title">${categories[key].title}</h2>
-                            <p class="section-description">
-                                ${this.getCategoryDescription(key)}
-                            </p>
-                        </div>
-                        <div class="partners-grid">
-                            ${categories[key].partners.map(partner => this.createPartnerCard(partner)).join('')}
-                        </div>
-                    </div>
-                </section>
-            `).join('');
-        }
-
-        // Réinitialiser les animations
-        this.setupScrollAnimations();
-    }
-
-    // Affichage d'une seule catégorie
-    displaySingleCategory(partners) {
-        const mainContainer = document.querySelector('.partners-main');
-        if (mainContainer) {
-            mainContainer.innerHTML = `
-                <section class="partners-section visible" data-category="${this.currentCategory}">
-                    <div class="container">
-                        <div class="section-header">
-                            <h2 class="section-title">${this.getCategoryTitle(this.currentCategory)}</h2>
-                            <p class="section-description">
-                                ${this.getCategoryDescription(this.currentCategory)}
-                            </p>
-                        </div>
-                        <div class="partners-grid">
-                            ${partners.map(partner => this.createPartnerCard(partner)).join('')}
-                        </div>
-                    </div>
-                </section>
-            `;
-        }
-
-        // Réinitialiser les animations
-        this.setupScrollAnimations();
-    }
-
-    // Créer une carte de partenaire
-    createPartnerCard(partner) {
-        return `
-            <div class="partner-card" data-partner-id="${partner.id}">
-                <div class="partner-logo">
-                    <img src="resources/assets/images/partners/${partner.logo}" alt="${partner.name}"
-                         onerror="this.parentElement.innerHTML='<i class=partner-placeholder>${this.getPartnerIcon(partner.category)}</i>'">
-                </div>
-                <h4 class="partner-name">${partner.name}</h4>
-                <p class="partner-type">${partner.type}</p>
-                <p class="partner-description">${partner.description}</p>
-                <a href="${partner.link}" class="partner-link" target="_blank" rel="noopener">
-                    Visiter le site <i class="fas fa-external-link-alt"></i>
-                </a>
-            </div>
-        `;
-    }
-
-    // Obtenir l'icône pour une catégorie
-    getPartnerIcon(category) {
-        const icons = {
-            officiels: 'fas fa-building',
-            medias: 'fas fa-broadcast-tower',
-            techniques: 'fas fa-cogs',
-            financiers: 'fas fa-coins'
-        };
-        return `<i class="${icons[category] || 'fas fa-handshake'}"></i>`;
-    }
-
-    // Obtenir le titre d'une catégorie
-    getCategoryTitle(category) {
-        const titles = {
-            officiels: 'Partenaires Officiels',
-            medias: 'Partenaires Médias',
-            techniques: 'Partenaires Techniques',
-            financiers: 'Partenaires Financiers'
-        };
-        return titles[category] || 'Partenaires';
-    }
-
-    // Obtenir la description d'une catégorie
-    getCategoryDescription(category) {
-        const descriptions = {
-            officiels: 'Institutions et organisations qui soutiennent officiellement le FESPACO',
-            medias: 'Médias qui assurent la couverture et la promotion du festival',
-            techniques: 'Entreprises fournissant le matériel et le support technique',
-            financiers: 'Sponsors et partenaires financiers du festival'
-        };
-        return descriptions[category] || 'Nos précieux partenaires';
-    }
-
-    // Gestion des gestes tactiles
-    setupTouchGestures() {
+    // === Cartes des partenaires ===
+    function initializePartnerCards() {
         const partnerCards = document.querySelectorAll('.partner-card');
-        
+
         partnerCards.forEach(card => {
-            let startX = 0;
-            let startY = 0;
-            
-            card.addEventListener('touchstart', (e) => {
-                startX = e.touches[0].clientX;
-                startY = e.touches[0].clientY;
+            // Effet de hover 3D
+            card.addEventListener('mouseenter', function(e) {
+                const rect = this.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const rotateX = (y - centerY) / 10;
+                const rotateY = (centerX - x) / 10;
+                
+                this.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(20px)`;
             });
 
-            card.addEventListener('touchend', (e) => {
-                const endX = e.changedTouches[0].clientX;
-                const endY = e.changedTouches[0].clientY;
-                
-                const diffX = Math.abs(endX - startX);
-                const diffY = Math.abs(endY - startY);
-                
-                // Tap pour animation
-                if (diffX < 10 && diffY < 10) {
-                    this.animatePartnerCard(card);
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px)';
+            });
+
+            // Effet de ripple au clic
+            card.addEventListener('click', createRippleEffect);
+        });
+    }
+
+    // === Témoignages ===
+    function initializeTestimonials() {
+        const testimonialCards = document.querySelectorAll('.testimonial-card');
+
+        testimonialCards.forEach(card => {
+            // Animation d'entrée avec délai
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+                            entry.target.style.opacity = '1';
+                            entry.target.style.transform = 'translateY(0)';
+                        }, Math.random() * 500);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.3 });
+            
+            observer.observe(card);
+        });
+    }
+
+    // === Cartes des niveaux ===
+    function initializeLevelCards() {
+        const levelCards = document.querySelectorAll('.level-card');
+
+        levelCards.forEach((card, index) => {
+            // Animation d'entrée séquentielle
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(50px) scale(0.9)';
+            
+            setTimeout(() => {
+                card.style.transition = 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0) scale(1)';
+            }, index * 200);
+
+            // Effet de hover avec parallaxe
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+                this.style.boxShadow = '0 20px 60px rgba(0, 0, 0, 0.15)';
+            });
+
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+                this.style.boxShadow = '0 6px 30px rgba(0, 0, 0, 0.1)';
+            });
+        });
+    }
+
+    // === Optimisations de performance ===
+    function initializePerformanceOptimizations() {
+        // Lazy loading des images
+        const images = document.querySelectorAll('img[data-src]');
+        
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.src = img.dataset.src;
+                    img.classList.remove('lazy');
+                    imageObserver.unobserve(img);
                 }
             });
         });
-    }
-
-    // Animation d'entrée pour les nouvelles cartes
-    animateNewCards() {
-        const cards = document.querySelectorAll('.partner-card:not(.entering)');
         
-        cards.forEach((card, index) => {
-            setTimeout(() => {
-                card.classList.add('entering');
-            }, index * 50);
+        images.forEach(img => imageObserver.observe(img));
+
+        // Préchargement des images importantes
+        const preloadImages = [
+            '../resources/assets/images/partners/Logos-site-web-FESPACO-03.png',
+            '../resources/assets/images/partners/Logos-site-web-FESPACO-04.png',
+            '../resources/assets/images/partners/Logos-site-web-FESPACO-05.png'
+        ];
+        
+        preloadImages.forEach(src => {
+            const link = document.createElement('link');
+            link.rel = 'preload';
+            link.as = 'image';
+            link.href = src;
+            document.head.appendChild(link);
         });
     }
 
-    // Utilitaires
-    debounce(func, wait) {
+    // === Effet de ripple ===
+    function createRippleEffect(e) {
+        const button = e.currentTarget;
+        const ripple = document.createElement('span');
+        const rect = button.getBoundingClientRect();
+        const size = Math.max(rect.width, rect.height);
+        const x = e.clientX - rect.left - size / 2;
+        const y = e.clientY - rect.top - size / 2;
+        
+        ripple.style.cssText = `
+            position: absolute;
+            width: ${size}px;
+            height: ${size}px;
+            left: ${x}px;
+            top: ${y}px;
+            background: rgba(74, 144, 226, 0.3);
+            border-radius: 50%;
+            transform: scale(0);
+            animation: ripple 0.6s linear;
+            pointer-events: none;
+            z-index: 1;
+        `;
+        
+        button.style.position = 'relative';
+        button.appendChild(ripple);
+        
+        setTimeout(() => {
+            ripple.remove();
+        }, 600);
+    }
+
+    // === Utilitaires ===
+    function throttle(func, limit) {
+        let inThrottle;
+        return function() {
+            const args = arguments;
+            const context = this;
+            if (!inThrottle) {
+                func.apply(context, args);
+                inThrottle = true;
+                setTimeout(() => inThrottle = false, limit);
+            }
+        };
+    }
+
+    function debounce(func, wait) {
         let timeout;
         return function executedFunction(...args) {
             const later = () => {
@@ -429,12 +298,65 @@ class FespacoPartnersPage {
             timeout = setTimeout(later, wait);
         };
     }
-}
 
-// Initialisation
-document.addEventListener('DOMContentLoaded', () => {
-    new FespacoPartnersPage();
-});
+    // === Animations CSS dynamiques ===
+    function addDynamicStyles() {
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes ripple {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+            
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(30px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+            
+            @keyframes scaleIn {
+                from {
+                    opacity: 0;
+                    transform: scale(0.9);
+                }
+                to {
+                    opacity: 1;
+                    transform: scale(1);
+                }
+            }
+            
+            .partner-card,
+            .level-card,
+            .testimonial-card {
+                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+            
+            .animate-in {
+                animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+            }
+            
+            .stat-item {
+                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+            
+            .category-btn {
+                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+        `;
+        document.head.appendChild(style);
+    }
+
+    // Ajouter les styles dynamiques
+    addDynamicStyles();
+
+})();
 
 // Gestion responsive
 window.addEventListener('resize', () => {
