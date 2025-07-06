@@ -1,6 +1,3 @@
-/* FESPACO - JavaScript refactorisé */
-/* Carrousel auto-slidant avec changement de thème et effets modernes */
-
 (function() {
     'use strict';
 
@@ -8,7 +5,7 @@
     const CONFIG = {
         SCROLL_THRESHOLD: 50,
         ANIMATION_DURATION: 1000,
-        SLIDER_INTERVAL: 6000, // 6 secondes entre chaque slide
+        SLIDER_INTERVAL: 2000,
         PARALLAX_FACTOR: 0.5,
         THEME_TRANSITION_DURATION: 1200
     };
@@ -102,6 +99,22 @@
     let slides = [];
     let slideInterval;
 
+    // Fonctions globales pour le slider
+    window.previousSlide = function() {
+        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+        updateSlider();
+    };
+
+    window.nextSlide = function() {
+        currentSlide = (currentSlide + 1) % slides.length;
+        updateSlider();
+    };
+
+    window.currentSlide = function(index) {
+        currentSlide = index;
+        updateSlider();
+    };
+
     function initializeSlider() {
         slides = document.querySelectorAll('.slide');
         const indicators = document.querySelectorAll('.indicator');
@@ -119,13 +132,13 @@
         // Événements des boutons
         if (prevBtn) prevBtn.addEventListener('click', () => {
             stopAutoSlide();
-            previousSlide();
+            window.previousSlide();
             startAutoSlide();
         });
         
         if (nextBtn) nextBtn.addEventListener('click', () => {
             stopAutoSlide();
-            nextSlide();
+            window.nextSlide();
             startAutoSlide();
         });
         
@@ -133,7 +146,7 @@
         indicators.forEach((indicator, index) => {
             indicator.addEventListener('click', () => {
                 stopAutoSlide();
-                goToSlide(index);
+                currentSlide(index);
                 startAutoSlide();
             });
         });
@@ -157,11 +170,11 @@
         document.addEventListener('keydown', (e) => {
             if (e.key === 'ArrowLeft') {
                 stopAutoSlide();
-                previousSlide();
+                window.previousSlide();
                 startAutoSlide();
             } else if (e.key === 'ArrowRight') {
                 stopAutoSlide();
-                nextSlide();
+                window.nextSlide();
                 startAutoSlide();
             } else if (e.key === ' ') {
                 e.preventDefault();
@@ -196,12 +209,12 @@
                 if (diff > 0) {
                     // Swipe gauche
                     stopAutoSlide();
-                    nextSlide();
+                    window.nextSlide();
                     startAutoSlide();
                 } else {
                     // Swipe droite
                     stopAutoSlide();
-                    previousSlide();
+                    window.previousSlide();
                     startAutoSlide();
                 }
             }
@@ -218,20 +231,7 @@
         });
     }
 
-    function nextSlide() {
-        currentSlide = (currentSlide + 1) % slides.length;
-        updateSlider();
-    }
 
-    function previousSlide() {
-        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-        updateSlider();
-    }
-
-    function goToSlide(index) {
-        currentSlide = index;
-        updateSlider();
-    }
 
     function updateSlider() {
         // Mettre à jour les slides avec transition fluide
@@ -281,7 +281,7 @@
 
     function startAutoSlide() {
         if (slideInterval) clearInterval(slideInterval);
-        slideInterval = setInterval(nextSlide, CONFIG.SLIDER_INTERVAL);
+        slideInterval = setInterval(window.nextSlide, CONFIG.SLIDER_INTERVAL);
     }
 
     function stopAutoSlide() {

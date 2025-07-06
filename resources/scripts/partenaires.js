@@ -1,6 +1,3 @@
-/* FESPACO - JavaScript de la page partenaires refactorisé */
-/* Effets modernes avec filtrage des catégories et animations */
-
 (function() {
     'use strict';
 

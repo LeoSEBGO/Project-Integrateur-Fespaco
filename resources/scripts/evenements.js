@@ -1,5 +1,3 @@
-/* FESPACO - JavaScript pour la page Événements */
-
 class FespacoEventsPage {
     constructor() {
         this.films = [];
@@ -480,4 +478,447 @@ window.addEventListener('resize', () => {
             grid.style.gridTemplateColumns = '1fr';
         }
     }
-}); 
+});
+
+// Page Événements FESPACO - JavaScript
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialisation des composants
+    initEventFilters();
+    initEventAnimations();
+    initEventInteractions();
+    initTimelineAnimations();
+    initStatsCounter();
+    initAccessibility();
+});
+
+/**
+ * Initialisation des filtres d'événements
+ */
+function initEventFilters() {
+    const filterButtons = document.querySelectorAll('[data-filter]');
+    const eventCards = document.querySelectorAll('.event-card');
+
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const filter = this.getAttribute('data-filter');
+            
+            // Mise à jour des boutons actifs
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            this.classList.add('active');
+            
+            // Filtrage des événements
+            filterEvents(filter, eventCards);
+        });
+    });
+}
+
+/**
+ * Filtrage des événements
+ */
+function filterEvents(filter, eventCards) {
+    eventCards.forEach(card => {
+        const category = card.getAttribute('data-category');
+        
+        if (filter === 'all' || category === filter) {
+            card.style.display = 'block';
+            card.style.animation = 'fadeInUp 0.6s ease-out';
+        } else {
+            card.style.display = 'none';
+        }
+    });
+    
+    // Animation des cartes visibles
+    const visibleCards = Array.from(eventCards).filter(card => 
+        card.style.display !== 'none'
+    );
+    
+    visibleCards.forEach((card, index) => {
+        card.style.animationDelay = `${index * 0.1}s`;
+    });
+}
+
+/**
+ * Animations des événements
+ */
+function initEventAnimations() {
+    // Animation des cartes d'événements
+    const eventCards = document.querySelectorAll('.event-card');
+    eventCards.forEach((card, index) => {
+        card.style.animationDelay = `${index * 0.2}s`;
+        card.classList.add('fade-in-up');
+    });
+
+    // Animation de la section statistiques
+    const statCards = document.querySelectorAll('.stat-card');
+    statCards.forEach((card, index) => {
+        card.style.animationDelay = `${index * 0.3}s`;
+        card.classList.add('fade-in-up');
+    });
+
+    // Animation des cartes de salles
+    const venueCards = document.querySelectorAll('.venue-card');
+    venueCards.forEach((card, index) => {
+        card.style.animationDelay = `${index * 0.2}s`;
+        card.classList.add('fade-in-up');
+    });
+}
+
+/**
+ * Interactions avec les événements
+ */
+function initEventInteractions() {
+    // Effet de survol sur les cartes
+    const eventCards = document.querySelectorAll('.event-card');
+    eventCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-10px) scale(1.02)';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0) scale(1)';
+        });
+    });
+
+    // Interactions avec les boutons d'action
+    const actionButtons = document.querySelectorAll('.btn');
+    actionButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            // Effet de ripple
+            createRippleEffect(e, this);
+        });
+    });
+
+    // Animation des badges de statut
+    const statusBadges = document.querySelectorAll('.status-badge');
+    statusBadges.forEach(badge => {
+        badge.addEventListener('mouseenter', function() {
+            this.style.transform = 'scale(1.1)';
+        });
+        
+        badge.addEventListener('mouseleave', function() {
+            this.style.transform = 'scale(1)';
+        });
+    });
+}
+
+/**
+ * Animations de la timeline
+ */
+function initTimelineAnimations() {
+    const timelineItems = document.querySelectorAll('.timeline-item');
+    
+    // Animation au scroll
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateX(0)';
+            }
+        });
+    }, { threshold: 0.5 });
+
+    timelineItems.forEach(item => {
+        item.style.opacity = '0';
+        item.style.transform = 'translateX(-50px)';
+        item.style.transition = 'all 0.8s ease';
+        observer.observe(item);
+    });
+}
+
+/**
+ * Compteur animé des statistiques
+ */
+function initStatsCounter() {
+    const statNumbers = document.querySelectorAll('.stat-number');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animateCounter(entry.target);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    statNumbers.forEach(number => {
+        observer.observe(number);
+    });
+}
+
+/**
+ * Animation du compteur
+ */
+function animateCounter(element) {
+    const target = parseInt(element.textContent.replace(/\D/g, ''));
+    const suffix = element.textContent.replace(/\d/g, '');
+    let current = 0;
+    const increment = target / 50;
+    const timer = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+            current = target;
+            clearInterval(timer);
+        }
+        element.textContent = Math.floor(current) + suffix;
+    }, 30);
+}
+
+/**
+ * Effet de ripple sur les boutons
+ */
+function createRippleEffect(event, element) {
+    const ripple = document.createElement('span');
+    const rect = element.getBoundingClientRect();
+    const size = Math.max(rect.width, rect.height);
+    const x = event.clientX - rect.left - size / 2;
+    const y = event.clientY - rect.top - size / 2;
+    
+    ripple.style.width = ripple.style.height = size + 'px';
+    ripple.style.left = x + 'px';
+    ripple.style.top = y + 'px';
+    ripple.classList.add('ripple');
+    
+    element.appendChild(ripple);
+    
+    setTimeout(() => {
+        ripple.remove();
+    }, 600);
+}
+
+/**
+ * Accessibilité
+ */
+function initAccessibility() {
+    // Navigation au clavier
+    const focusableElements = document.querySelectorAll('button, a, input, select, textarea');
+    
+    focusableElements.forEach(element => {
+        element.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                this.click();
+            }
+        });
+    });
+
+    // Annonces pour les lecteurs d'écran
+    const filterButtons = document.querySelectorAll('[data-filter]');
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const filter = this.getAttribute('data-filter');
+            const eventCount = document.querySelectorAll(`.event-card[data-category="${filter}"]`).length;
+            
+            // Annonce pour les lecteurs d'écran
+            announceToScreenReader(`${eventCount} événements affichés pour la catégorie ${filter}`);
+        });
+    });
+}
+
+/**
+ * Annonce pour les lecteurs d'écran
+ */
+function announceToScreenReader(message) {
+    const announcement = document.createElement('div');
+    announcement.setAttribute('aria-live', 'polite');
+    announcement.setAttribute('aria-atomic', 'true');
+    announcement.style.position = 'absolute';
+    announcement.style.left = '-10000px';
+    announcement.style.width = '1px';
+    announcement.style.height = '1px';
+    announcement.style.overflow = 'hidden';
+    announcement.textContent = message;
+    
+    document.body.appendChild(announcement);
+    
+    setTimeout(() => {
+        document.body.removeChild(announcement);
+    }, 1000);
+}
+
+/**
+ * Gestion des préférences utilisateur
+ */
+function initUserPreferences() {
+    // Respect des préférences de réduction de mouvement
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        document.documentElement.style.setProperty('--transition-normal', 'none');
+        document.documentElement.style.setProperty('--transition-fast', 'none');
+    }
+
+    // Mode sombre
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.documentElement.classList.add('dark-mode');
+    }
+}
+
+/**
+ * Gestion du responsive
+ */
+function initResponsive() {
+    // Adaptation des filtres sur mobile
+    const filterGroup = document.querySelector('.btn-group');
+    if (filterGroup && window.innerWidth <= 768) {
+        filterGroup.classList.add('flex-column');
+    }
+
+    // Adaptation de la timeline sur mobile
+    const timelineContainer = document.querySelector('.timeline-container');
+    if (timelineContainer && window.innerWidth <= 768) {
+        timelineContainer.style.paddingLeft = '20px';
+    }
+}
+
+/**
+ * Gestion des erreurs
+ */
+function handleErrors() {
+    window.addEventListener('error', function(e) {
+        console.error('Erreur JavaScript:', e.error);
+        
+        // Affichage d'un message d'erreur utilisateur
+        showErrorMessage('Une erreur est survenue. Veuillez rafraîchir la page.');
+    });
+}
+
+/**
+ * Affichage d'un message d'erreur
+ */
+function showErrorMessage(message) {
+    const errorDiv = document.createElement('div');
+    errorDiv.className = 'alert alert-danger alert-dismissible fade show position-fixed';
+    errorDiv.style.top = '20px';
+    errorDiv.style.right = '20px';
+    errorDiv.style.zIndex = '9999';
+    errorDiv.innerHTML = `
+        <i class="fas fa-exclamation-triangle me-2"></i>
+        ${message}
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    `;
+    
+    document.body.appendChild(errorDiv);
+    
+    // Suppression automatique après 5 secondes
+    setTimeout(() => {
+        if (errorDiv.parentNode) {
+            errorDiv.remove();
+        }
+    }, 5000);
+}
+
+/**
+ * Initialisation des performances
+ */
+function initPerformance() {
+    // Lazy loading des images
+    const images = document.querySelectorAll('img[data-src]');
+    const imageObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                img.src = img.dataset.src;
+                img.classList.remove('lazy');
+                imageObserver.unobserve(img);
+            }
+        });
+    });
+
+    images.forEach(img => imageObserver.observe(img));
+}
+
+// Initialisation des préférences utilisateur
+initUserPreferences();
+
+// Initialisation du responsive
+initResponsive();
+
+// Gestion des erreurs
+handleErrors();
+
+// Initialisation des performances
+initPerformance();
+
+// Styles CSS dynamiques
+const style = document.createElement('style');
+style.textContent = `
+    .ripple {
+        position: absolute;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.6);
+        transform: scale(0);
+        animation: ripple-animation 0.6s linear;
+        pointer-events: none;
+    }
+    
+    @keyframes ripple-animation {
+        to {
+            transform: scale(4);
+            opacity: 0;
+        }
+    }
+    
+    .fade-in-up {
+        animation: fadeInUp 0.6s ease-out forwards;
+    }
+    
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    .event-card {
+        transition: all 0.3s ease;
+    }
+    
+    .status-badge {
+        transition: transform 0.3s ease;
+    }
+    
+    .timeline-item {
+        transition: all 0.8s ease;
+    }
+    
+    /* Mode sombre */
+    .dark-mode .event-card .card,
+    .dark-mode .venue-card,
+    .dark-mode .timeline-content {
+        background: #343a40;
+        border-color: #6c757d;
+    }
+    
+    .dark-mode .event-card .card-text,
+    .dark-mode .venue-card p {
+        color: #ffffff;
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+        .btn-group {
+            flex-direction: column;
+        }
+        
+        .timeline-container {
+            padding-left: 20px;
+        }
+    }
+    
+    /* Accessibilité */
+    @media (prefers-reduced-motion: reduce) {
+        .event-card,
+        .venue-card,
+        .timeline-item,
+        .status-badge {
+            transition: none;
+        }
+        
+        .fade-in-up {
+            animation: none;
+        }
+    }
+`;
+document.head.appendChild(style); 
