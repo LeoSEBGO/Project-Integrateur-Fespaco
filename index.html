@@ -690,26 +690,5 @@
     <!-- Scripts -->
     <script src="resources/styles/bootstrap-5.3.7-dist/js/bootstrap.bundle.min.js"></script>
     <script src="resources/scripts/index.js"></script>
-    
-    <!-- Gestion d'erreur pour les scripts -->
-    <script>
-        // Gestion d'erreur pour Bootstrap
-        window.addEventListener('error', function(e) {
-            if (e.target.src && e.target.src.includes('bootstrap')) {
-                console.warn('Bootstrap local n\'a pas pu être chargé, chargement depuis un CDN alternatif...');
-                // Charger depuis un CDN alternatif
-                const script = document.createElement('script');
-                script.src = 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/js/bootstrap.bundle.min.js';
-                document.head.appendChild(script);
-            }
-        });
-        
-        // Gestion d'erreur pour le script index.js
-        window.addEventListener('error', function(e) {
-            if (e.target.src && e.target.src.includes('index.js')) {
-                console.warn('Le script index.js n\'a pas pu être chargé');
-            }
-        });
-    </script>
 </body>
 </html> 
