@@ -1,0 +1,474 @@
+/* FESPACO - Effets 3D et animations */
+/* Effets visuels, particules, transformations 3D */
+
+/* Keyframes pour les animations */
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes glow-pulse {
+    from { filter: drop-shadow(0 0 10px rgba(74, 144, 226, 0.8)); }
+    to { filter: drop-shadow(0 0 30px rgba(74, 144, 226, 0.4)); }
+}
+
+@keyframes rotate-3d {
+    0% { transform: rotateY(0deg) rotateX(10deg); }
+    25% { transform: rotateY(90deg) rotateX(20deg); }
+    50% { transform: rotateY(180deg) rotateX(10deg); }
+    75% { transform: rotateY(270deg) rotateX(20deg); }
+    100% { transform: rotateY(360deg) rotateX(10deg); }
+}
+
+@keyframes pulse-glow {
+    0%, 100% { transform: scale(1); opacity: 0.3; }
+    50% { transform: scale(1.1); opacity: 0.1; }
+}
+
+@keyframes particle-float {
+    0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+}
+
+@keyframes float-around {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    25% { transform: translateY(-30px) rotate(90deg); }
+    50% { transform: translateY(-10px) rotate(180deg); }
+    75% { transform: translateY(-25px) rotate(270deg); }
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+@keyframes bounce-in {
+    0% { transform: scale(0.3); opacity: 0; }
+    50% { transform: scale(1.05); }
+    70% { transform: scale(0.9); }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes slide-in-from-left {
+    0% { transform: translateX(-100%); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slide-in-from-right {
+    0% { transform: translateX(100%); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes zoom-in {
+    0% { transform: scale(0); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes flip-in {
+    0% { transform: rotateY(-90deg); opacity: 0; }
+    100% { transform: rotateY(0); opacity: 1; }
+}
+
+/* Système de particules */
+.hero-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: var(--primary-blue);
+    border-radius: 50%;
+    animation: particle-float 15s linear infinite;
+}
+
+.particle:nth-child(2n) {
+    background: rgba(74, 144, 226, 0.7);
+    width: 3px;
+    height: 3px;
+}
+
+.particle:nth-child(3n) {
+    background: rgba(52, 152, 219, 0.5);
+    width: 2px;
+    height: 2px;
+}
+
+/* Éléments flottants */
+.floating-elements {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+}
+
+.floating-element {
+    position: absolute;
+    color: var(--primary-blue);
+    animation: float-around 8s ease-in-out infinite;
+    opacity: 0.7;
+}
+
+.floating-element:nth-child(1) {
+    top: 20%;
+    left: 10%;
+    font-size: 2.5rem;
+    animation-delay: 0s;
+}
+
+.floating-element:nth-child(2) {
+    top: 60%;
+    right: 15%;
+    font-size: 2rem;
+    animation-delay: 2s;
+}
+
+.floating-element:nth-child(3) {
+    bottom: 30%;
+    left: 30%;
+    font-size: 2.2rem;
+    animation-delay: 4s;
+}
+
+/* Bobine de film 3D */
+.film-reel-container {
+    position: relative;
+    perspective: 1000px;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.film-reel-3d {
+    width: 250px;
+    height: 250px;
+    background: var(--gradient-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 5rem;
+    color: var(--text-white);
+    animation: rotate-3d 15s linear infinite;
+    box-shadow: 
+        0 0 50px rgba(37, 99, 235, 0.6),
+        inset 0 0 30px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+.film-reel-3d::before {
+    content: '';
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    right: -15px;
+    bottom: -15px;
+    background: var(--gradient-primary);
+    border-radius: 50%;
+    z-index: -1;
+    opacity: 0.3;
+    animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.film-reel-3d::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80px;
+    height: 80px;
+    background: var(--text-white);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: inset 0 0 20px rgba(74, 144, 226, 0.3);
+}
+
+/* Effets hover 3D */
+.hover-3d {
+    transition: all 0.3s ease;
+    transform-style: preserve-3d;
+}
+
+.hover-3d:hover {
+    transform: rotateY(5deg) rotateX(5deg) scale(1.02);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* Effet de brillance */
+.shimmer-effect {
+    position: relative;
+    overflow: hidden;
+}
+
+.shimmer-effect::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    animation: shimmer 2s infinite;
+}
+
+/* Animations d'entrée */
+.bounce-in {
+    animation: bounce-in 0.6s ease-out;
+}
+
+.slide-in-left {
+    animation: slide-in-from-left 0.8s ease-out;
+}
+
+.slide-in-right {
+    animation: slide-in-from-right 0.8s ease-out;
+}
+
+.zoom-in {
+    animation: zoom-in 0.6s ease-out;
+}
+
+.flip-in {
+    animation: flip-in 0.8s ease-out;
+}
+
+/* Effets de parallax */
+.parallax-element {
+    will-change: transform;
+}
+
+.parallax-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 120%;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    will-change: transform;
+}
+
+/* Effets de morphing */
+.morph-circle {
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.morph-circle:hover {
+    border-radius: 20%;
+    transform: scale(1.1);
+}
+
+/* Effets de glass morphism */
+.glass-effect {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* Effets de néon */
+.neon-glow {
+    text-shadow: 
+        0 0 5px var(--primary-gold),
+        0 0 10px var(--primary-gold),
+        0 0 15px var(--primary-gold),
+        0 0 20px var(--primary-gold);
+}
+
+.neon-border {
+    border: 2px solid var(--primary-gold);
+    box-shadow: 
+        0 0 10px var(--primary-gold),
+        inset 0 0 10px var(--primary-gold);
+}
+
+/* Animations au scroll */
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease;
+}
+
+.scroll-reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Effets de rotation */
+.rotate-on-hover {
+    transition: transform 0.3s ease;
+}
+
+.rotate-on-hover:hover {
+    transform: rotate(360deg);
+}
+
+.rotate-continuous {
+    animation: rotate-3d 10s linear infinite;
+}
+
+/* Effets de pulsation */
+.pulse-effect {
+    animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.pulse-on-hover {
+    transition: all 0.3s ease;
+}
+
+.pulse-on-hover:hover {
+    animation: pulse-glow 1s ease-in-out infinite;
+}
+
+/* Effets de dégradé animé */
+.gradient-animation {
+    background: linear-gradient(45deg, var(--primary-gold), #FFD700, var(--primary-red), var(--primary-gold));
+    background-size: 400% 400%;
+    animation: gradientShift 4s ease infinite;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Effets de typing */
+.typing-effect {
+    overflow: hidden;
+    border-right: 3px solid var(--primary-gold);
+    white-space: nowrap;
+    animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: var(--primary-gold); }
+}
+
+/* Effets de survol pour les images */
+.image-hover-effect {
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.image-hover-effect img {
+    transition: transform 0.3s ease;
+}
+
+.image-hover-effect:hover img {
+    transform: scale(1.1);
+}
+
+.image-hover-effect:hover {
+    box-shadow: 0 15px 40px rgba(212, 175, 55, 0.3);
+}
+
+/* Effets de loading */
+.loading-spinner {
+    border: 4px solid rgba(212, 175, 55, 0.3);
+    border-radius: 50%;
+    border-top: 4px solid var(--primary-gold);
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Effets de texte */
+.text-shadow-glow {
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.8);
+}
+
+.text-outline {
+    -webkit-text-stroke: 2px var(--primary-gold);
+    -webkit-text-fill-color: transparent;
+}
+
+/* Responsive des effets */
+@media (max-width: 768px) {
+    .film-reel-3d {
+        width: 200px;
+        height: 200px;
+        font-size: 4rem;
+    }
+    
+    .floating-element {
+        display: none;
+    }
+    
+    .particle {
+        width: 2px;
+        height: 2px;
+    }
+    
+    .hover-3d:hover {
+        transform: scale(1.02);
+    }
+}
+
+@media (max-width: 576px) {
+    .film-reel-3d {
+        width: 150px;
+        height: 150px;
+        font-size: 3rem;
+    }
+    
+    .hero-particles {
+        display: none;
+    }
+    
+    .neon-glow {
+        text-shadow: 
+            0 0 5px var(--primary-gold),
+            0 0 10px var(--primary-gold);
+    }
+}
+
+/* Performances optimisées */
+.gpu-accelerated {
+    transform: translateZ(0);
+    will-change: transform;
+}
+
+.optimize-animations {
+    animation-fill-mode: both;
+    animation-duration: 0.6s;
+}
+
+/* Préférence de mouvement réduit */
+@media (prefers-reduced-motion: reduce) {
+    .particle,
+    .floating-element,
+    .film-reel-3d,
+    .rotate-continuous {
+        animation: none;
+    }
+    
+    .hover-3d:hover {
+        transform: none;
+    }
+} 

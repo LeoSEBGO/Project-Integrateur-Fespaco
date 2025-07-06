@@ -17,33 +17,32 @@
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="index.html">
-                <i class="fas fa-film me-2"></i>
-                FESPACO
+            <a class="navbar-brand d-flex align-items-center" href="../index.html">
+                <img src="../resources/assets/images/logo/Logo-FESPACO-2025-02.png" alt="FESPACO 2025" class="navbar-logo me-2">
+                <span class="fw-bold">FESPACO</span>
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+            
+            <div class="d-flex d-lg-none align-items-center">
+                <a href="../index.html#billets" class="btn btn-outline-primary btn-sm me-2">Billets</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html">Accueil</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="apropos.html">À Propos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="evenements.html">Événements</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="partenaires.html">Partenaires</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact.html">Contact</a>
-                    </li>
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="../index.html">Accueil</a></li>
+                    <li class="nav-item"><a class="nav-link" href="apropos.html">À propos</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="evenements.html">Événements</a></li>
+                    <li class="nav-item"><a class="nav-link" href="partenaires.html">Partenaires</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
                 </ul>
+                <div class="d-none d-lg-flex gap-2">
+                    <a href="../index.html#billets" class="btn btn-outline-primary">Acheter Billets</a>
+                    <a href="../index.html#acreditation" class="btn btn-primary">Accréditation</a>
+                </div>
             </div>
         </div>
     </nav>
@@ -84,19 +83,19 @@
             <div class="row mb-5">
                 <div class="col-12 text-center">
                     <div class="btn-group" role="group">
-                        <button type="button" class="btn btn-outline-warning active" data-filter="all">
+                        <button type="button" class="btn btn-outline-primary active" data-filter="all">
                             <i class="fas fa-th-large me-2"></i>Tous
                         </button>
-                        <button type="button" class="btn btn-outline-warning" data-filter="projection">
+                        <button type="button" class="btn btn-outline-primary" data-filter="projection">
                             <i class="fas fa-play me-2"></i>Projections
                         </button>
-                        <button type="button" class="btn btn-outline-warning" data-filter="competition">
+                        <button type="button" class="btn btn-outline-primary" data-filter="competition">
                             <i class="fas fa-trophy me-2"></i>Compétitions
                         </button>
-                        <button type="button" class="btn btn-outline-warning" data-filter="workshop">
+                        <button type="button" class="btn btn-outline-primary" data-filter="workshop">
                             <i class="fas fa-chalkboard-teacher me-2"></i>Ateliers
                         </button>
-                        <button type="button" class="btn btn-outline-warning" data-filter="ceremonie">
+                        <button type="button" class="btn btn-outline-primary" data-filter="ceremonie">
                             <i class="fas fa-star me-2"></i>Cérémonies
                         </button>
                     </div>
@@ -108,7 +107,7 @@
                 <!-- Jour 1 -->
                 <div class="col-lg-4 col-md-6 event-card" data-category="ceremonie">
                     <div class="card h-100 shadow-sm hover-3d">
-                        <div class="card-header bg-warning text-dark">
+                        <div class="card-header bg-primary text-white">
                             <h5 class="card-title mb-0">
                                 <i class="fas fa-star me-2"></i>Cérémonie d'Ouverture
                             </h5>
@@ -282,7 +281,7 @@
                 <div class="col-lg-4">
                     <h5>Liens Rapides</h5>
                     <ul class="list-unstyled">
-                        <li><a href="index.html" class="text-light">Accueil</a></li>
+                        <li><a href="../index.html" class="text-light">Accueil</a></li>
                         <li><a href="apropos.html" class="text-light">À Propos</a></li>
                         <li><a href="partenaires.html" class="text-light">Partenaires</a></li>
                         <li><a href="contact.html" class="text-light">Contact</a></li>

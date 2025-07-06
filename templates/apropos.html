@@ -14,36 +14,36 @@
     <link rel="stylesheet" href="../resources/styles/main.css">
     <link rel="stylesheet" href="../resources/styles/components.css">
     <link rel="stylesheet" href="../resources/styles/effects.css">
+    <link rel="stylesheet" href="../resources/styles/apropos.css">
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="index.html">
-                <i class="fas fa-film me-2"></i>
-                FESPACO
+            <a class="navbar-brand d-flex align-items-center" href="../index.html">
+                <img src="../resources/assets/images/logo/Logo-FESPACO-2025-02.png" alt="FESPACO 2025" class="navbar-logo me-2">
+                <span class="fw-bold">FESPACO</span>
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+            
+            <div class="d-flex d-lg-none align-items-center">
+                <a href="../index.html#billets" class="btn btn-outline-primary btn-sm me-2">Billets</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html">Accueil</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="apropos.html">À Propos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="evenements.html">Événements</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="partenaires.html">Partenaires</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact.html">Contact</a>
-                    </li>
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="../index.html">Accueil</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="apropos.html">À propos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="evenements.html">Événements</a></li>
+                    <li class="nav-item"><a class="nav-link" href="partenaires.html">Partenaires</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
                 </ul>
+                <div class="d-none d-lg-flex gap-2">
+                    <a href="../index.html#billets" class="btn btn-outline-primary">Acheter Billets</a>
+                    <a href="../index.html#acreditation" class="btn btn-primary">Accréditation</a>
+                </div>
             </div>
         </div>
     </nav>
@@ -216,6 +216,225 @@
         </div>
     </section>
 
+    <!-- Étalon d'Or Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="etalon-content">
+                        <h2 class="display-4 fw-bold mb-4">L'Étalon d'Or de Yennenga</h2>
+                        <p class="lead mb-4">
+                            Le prix suprême du FESPACO, l'Étalon d'Or de Yennenga, est le symbole de l'excellence 
+                            cinématographique africaine. Ce trophée unique représente la princesse Yennenga, 
+                            figure légendaire du royaume Mossi, symbole de courage et de détermination.
+                        </p>
+                        <div class="etalon-features">
+                            <div class="feature-item">
+                                <i class="fas fa-trophy text-warning"></i>
+                                <span>Prix suprême du festival</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-star text-warning"></i>
+                                <span>Reconnaissance internationale</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-crown text-warning"></i>
+                                <span>Symbole d'excellence</span>
+                            </div>
+                        </div>
+                        <div class="etalon-history mt-4">
+                            <h5>Histoire du Trophée</h5>
+                            <p>
+                                Créé en 1979, l'Étalon d'Or de Yennenga est décerné au meilleur film africain 
+                                de l'année. Le trophée, en bronze doré, représente une cavalière brandissant 
+                                une lance, symbolisant la force et la détermination du cinéma africain.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="etalon-visual">
+                        <div class="trophy-display">
+                            <div class="trophy-image">
+                                <img src="../resources/assets/images/logo/Logo-FESPACO-2025-02.png" 
+                                     alt="Étalon d'Or de Yennenga" class="img-fluid">
+                            </div>
+                            <div class="trophy-glow"></div>
+                        </div>
+                        <div class="recent-winners mt-4">
+                            <h5>Récents Lauréats</h5>
+                            <div class="winner-list">
+                                <div class="winner-item">
+                                    <span class="year">2023</span>
+                                    <span class="film">"Sira" - Apolline Traoré</span>
+                                </div>
+                                <div class="winner-item">
+                                    <span class="year">2021</span>
+                                    <span class="film">"The Gravedigger's Wife" - Khadar Ayderus Ahmed</span>
+                                </div>
+                                <div class="winner-item">
+                                    <span class="year">2019</span>
+                                    <span class="film">"Desrances" - Apolline Traoré</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact et Influence -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-12">
+                    <h2 class="display-4 fw-bold mb-5">Impact et Influence</h2>
+                    <p class="lead mb-5">
+                        Le FESPACO a transformé le paysage cinématographique africain et continue d'influencer 
+                        les nouvelles générations de cinéastes.
+                    </p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="impact-card">
+                        <div class="impact-icon">
+                            <i class="fas fa-film"></i>
+                        </div>
+                        <h4>Découverte de Talents</h4>
+                        <p>
+                            Le FESPACO a révélé de nombreux cinéastes africains talentueux, 
+                            leur offrant une plateforme internationale pour présenter leurs œuvres.
+                        </p>
+                        <ul class="impact-list">
+                            <li>Ousmane Sembène</li>
+                            <li>Souleymane Cissé</li>
+                            <li>Idrissa Ouédraogo</li>
+                            <li>Apolline Traoré</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="impact-card">
+                        <div class="impact-icon">
+                            <i class="fas fa-globe-africa"></i>
+                        </div>
+                        <h4>Rayonnement Culturel</h4>
+                        <p>
+                            Le festival a contribué à la reconnaissance internationale du cinéma africain 
+                            et à la promotion de la diversité culturelle.
+                        </p>
+                        <ul class="impact-list">
+                            <li>Festivals internationaux</li>
+                            <li>Coproductions</li>
+                            <li>Distributions internationales</li>
+                            <li>Échanges culturels</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="impact-card">
+                        <div class="impact-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h4>Formation et Éducation</h4>
+                        <p>
+                            Le FESPACO joue un rôle crucial dans la formation des jeunes cinéastes 
+                            et la transmission du savoir-faire cinématographique.
+                        </p>
+                        <ul class="impact-list">
+                            <li>Ateliers de formation</li>
+                            <li>Masterclasses</li>
+                            <li>Résidences d'artistes</li>
+                            <li>Programmes éducatifs</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Équipe et Organisation -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-12">
+                    <h2 class="display-4 fw-bold mb-5">Notre Équipe</h2>
+                    <p class="lead mb-5">
+                        Une équipe dévouée et passionnée qui œuvre pour l'excellence du cinéma africain.
+                    </p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="team-card">
+                        <div class="team-photo">
+                            <img src="../resources/assets/images/logo/Logo-FESPACO-2025-02.png" 
+                                 alt="Directeur Général" class="img-fluid">
+                        </div>
+                        <div class="team-info">
+                            <h5>Alex Moussa Sawadogo</h5>
+                            <p class="text-muted">Directeur Général</p>
+                            <p class="team-description">
+                                À la tête du FESPACO depuis 2019, il œuvre pour le rayonnement 
+                                international du cinéma africain.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="team-card">
+                        <div class="team-photo">
+                            <img src="../resources/assets/images/logo/Logo-FESPACO-2025-02.png" 
+                                 alt="Directeur Artistique" class="img-fluid">
+                        </div>
+                        <div class="team-info">
+                            <h5>Fatou Kande Senghor</h5>
+                            <p class="text-muted">Directrice Artistique</p>
+                            <p class="team-description">
+                                Cinéaste et productrice, elle supervise la programmation 
+                                artistique du festival.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="team-card">
+                        <div class="team-photo">
+                            <img src="../resources/assets/images/logo/Logo-FESPACO-2025-02.png" 
+                                 alt="Directeur Technique" class="img-fluid">
+                        </div>
+                        <div class="team-info">
+                            <h5>Moussa Ouédraogo</h5>
+                            <p class="text-muted">Directeur Technique</p>
+                            <p class="team-description">
+                                Expert en technologies audiovisuelles, il assure la qualité 
+                                technique des projections.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="team-card">
+                        <div class="team-photo">
+                            <img src="../resources/assets/images/logo/Logo-FESPACO-2025-02.png" 
+                                 alt="Directeur Communication" class="img-fluid">
+                        </div>
+                        <div class="team-info">
+                            <h5>Aminata Ouédraogo</h5>
+                            <p class="text-muted">Directrice Communication</p>
+                            <p class="team-description">
+                                Spécialiste en communication culturelle, elle développe 
+                                la visibilité du festival.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer class="bg-dark text-white py-5">
         <div class="container">
@@ -227,7 +446,7 @@
                 <div class="col-lg-4">
                     <h5>Liens Rapides</h5>
                     <ul class="list-unstyled">
-                        <li><a href="index.html" class="text-light">Accueil</a></li>
+                        <li><a href="../index.html" class="text-light">Accueil</a></li>
                         <li><a href="evenements.html" class="text-light">Événements</a></li>
                         <li><a href="partenaires.html" class="text-light">Partenaires</a></li>
                         <li><a href="contact.html" class="text-light">Contact</a></li>
