@@ -154,7 +154,7 @@
 .film-reel-3d {
     width: 250px;
     height: 250px;
-    background: var(--gradient-blue);
+    background: var(--gradient-primary);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -163,7 +163,7 @@
     color: var(--text-white);
     animation: rotate-3d 15s linear infinite;
     box-shadow: 
-        0 0 50px rgba(74, 144, 226, 0.6),
+        0 0 50px rgba(37, 99, 235, 0.6),
         inset 0 0 30px rgba(0, 0, 0, 0.3);
     position: relative;
 }
@@ -175,7 +175,7 @@
     left: -15px;
     right: -15px;
     bottom: -15px;
-    background: var(--gradient-blue);
+    background: var(--gradient-primary);
     border-radius: 50%;
     z-index: -1;
     opacity: 0.3;

@@ -4,9 +4,9 @@
 /* Variables spécifiques à la page d'accueil */
 :root {
     --hero-overlay: rgba(0, 0, 0, 0.4);
-    --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-    --card-shadow-hover: 0 8px 40px rgba(0, 0, 0, 0.12);
-    --border-light: 1px solid rgba(0, 0, 0, 0.08);
+    --card-shadow: var(--shadow-md);
+    --card-shadow-hover: var(--shadow-xl);
+    --border-light: 1px solid var(--bg-gray);
 }
 
 /* Skip link */
@@ -76,12 +76,12 @@
 
 .navbar-nav .nav-link:hover {
     color: var(--primary-blue) !important;
-    background: rgba(74, 144, 226, 0.1);
+    background: rgba(37, 99, 235, 0.1);
 }
 
 .navbar-nav .nav-link.active {
     color: var(--primary-blue) !important;
-    background: rgba(74, 144, 226, 0.1);
+    background: rgba(37, 99, 235, 0.1);
 }
 
 .dropdown-menu {
@@ -100,13 +100,13 @@
 }
 
 .dropdown-item:hover {
-    background: rgba(74, 144, 226, 0.1);
+    background: rgba(37, 99, 235, 0.1);
     color: var(--primary-blue) !important;
 }
 
 /* News Banner - Style moderne */
 .news-banner {
-    background: var(--gradient-blue);
+    background: var(--gradient-primary);
     padding: 12px 0;
     margin-top: 80px;
     overflow: hidden;
@@ -625,7 +625,7 @@
 
 /* Section rejoignez-nous */
 .join-us-section {
-    background: var(--gradient-blue);
+    background: var(--gradient-primary);
     padding: var(--spacing-xxxl) 0;
     position: relative;
     overflow: hidden;
@@ -763,9 +763,9 @@
     text-decoration: none;
 }
 
-.social-link:nth-child(1) { background: var(--gradient-blue); }
-.social-link:nth-child(2) { background: var(--gradient-teal); }
-.social-link:nth-child(3) { background: var(--gradient-coral); }
+.social-link:nth-child(1) { background: var(--gradient-primary); }
+.social-link:nth-child(2) { background: var(--gradient-secondary); }
+.social-link:nth-child(3) { background: var(--gradient-accent); }
 .social-link:nth-child(4) { background: var(--gradient-purple); }
 
 .social-link:hover {
@@ -1117,5 +1117,224 @@
 @keyframes spinner {
     to {
         transform: rotate(360deg);
+    }
+}
+
+/* À propos du FESPACO Section */
+.about-fespaco-section {
+    padding: var(--spacing-xxxl) 0;
+    background: var(--bg-light);
+}
+
+.about-content {
+    padding-right: var(--spacing-xl);
+}
+
+.about-content .section-title {
+    color: var(--text-dark);
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: var(--spacing-lg);
+}
+
+.about-content .section-text {
+    color: var(--text-medium);
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: var(--spacing-xl);
+}
+
+.about-features {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+}
+
+.about-features .feature-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    padding: var(--spacing-md);
+    background: var(--bg-white);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-light);
+    transition: var(--transition-normal);
+}
+
+.about-features .feature-item:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-medium);
+}
+
+.about-features .feature-item i {
+    font-size: 1.5rem;
+    color: var(--primary-blue);
+}
+
+.about-features .feature-item span {
+    font-weight: 500;
+    color: var(--text-dark);
+}
+
+.about-visual .image-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-lg);
+    height: 400px;
+}
+
+.image-item {
+    overflow: hidden;
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-medium);
+}
+
+.image-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition-normal);
+}
+
+.image-item:hover img {
+    transform: scale(1.05);
+}
+
+/* Programme Section */
+.programme-section {
+    padding: var(--spacing-xxxl) 0;
+    background: var(--bg-white);
+}
+
+.programme-card {
+    background: var(--bg-white);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-light);
+    overflow: hidden;
+    transition: var(--transition-normal);
+    height: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.programme-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-medium);
+}
+
+.programme-date {
+    background: var(--gradient-primary);
+    color: var(--text-white);
+    text-align: center;
+    padding: var(--spacing-lg);
+}
+
+.programme-date .day {
+    display: block;
+    font-size: 2rem;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.programme-date .month {
+    display: block;
+    font-size: 1rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.programme-content {
+    padding: var(--spacing-lg);
+}
+
+.programme-content h4 {
+    color: var(--text-dark);
+    font-weight: 600;
+    margin-bottom: var(--spacing-md);
+    font-size: 1.2rem;
+}
+
+.programme-content p {
+    color: var(--text-medium);
+    margin-bottom: var(--spacing-md);
+    line-height: 1.6;
+}
+
+.programme-time {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    color: var(--primary-blue);
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.programme-time i {
+    font-size: 1rem;
+}
+
+/* Digital Features */
+.digital-features {
+    display: flex;
+    gap: var(--spacing-xl);
+    margin-bottom: var(--spacing-xl);
+    flex-wrap: wrap;
+}
+
+.digital-features .feature-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    color: var(--text-white);
+    font-weight: 500;
+}
+
+.digital-features .feature-item i {
+    font-size: 1.2rem;
+    color: var(--primary-gold);
+}
+
+/* Responsive pour les nouvelles sections */
+@media (max-width: 991px) {
+    .about-content {
+        padding-right: 0;
+        margin-bottom: var(--spacing-xl);
+    }
+    
+    .about-features {
+        grid-template-columns: 1fr;
+    }
+    
+    .about-visual .image-grid {
+        height: 300px;
+    }
+    
+    .programme-card {
+        margin-bottom: var(--spacing-lg);
+    }
+}
+
+@media (max-width: 767px) {
+    .about-content .section-title {
+        font-size: 2rem;
+    }
+    
+    .about-visual .image-grid {
+        grid-template-columns: 1fr;
+        height: 250px;
+    }
+    
+    .digital-features {
+        flex-direction: column;
+        gap: var(--spacing-md);
+    }
+    
+    .programme-date .day {
+        font-size: 1.5rem;
+    }
+    
+    .programme-content h4 {
+        font-size: 1.1rem;
     }
 } 

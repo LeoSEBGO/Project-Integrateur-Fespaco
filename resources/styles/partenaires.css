@@ -11,7 +11,7 @@
 
 /* Hero Section */
 .hero-section {
-    background: var(--gradient-blue);
+    background: var(--gradient-primary);
     position: relative;
     overflow: hidden;
     padding: var(--spacing-xxxl) 0;
@@ -266,7 +266,7 @@
     left: 0;
     right: 0;
     height: 4px;
-    background: var(--gradient-blue);
+    background: var(--gradient-primary);
 }
 
 .level-card.premium::before {
@@ -296,7 +296,7 @@
     margin: 0 auto 1.5rem;
     font-size: 2rem;
     color: var(--text-white);
-    background: var(--gradient-blue);
+    background: var(--gradient-primary);
 }
 
 .level-card.premium .level-icon {
@@ -388,7 +388,7 @@
 
 /* Call to Action */
 .partnership-cta {
-    background: var(--gradient-blue);
+    background: var(--gradient-primary);
     padding: var(--spacing-xxxl) 0;
     position: relative;
     overflow: hidden;
