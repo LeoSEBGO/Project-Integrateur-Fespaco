@@ -1,58 +1,4 @@
-.navbar {
-    background: rgba(255, 255, 255, 0.95) !important;
-    backdrop-filter: blur(20px);
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-    padding: 1rem 0;
-    transition: all var(--transition-normal);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-}
-.navbar.scrolled {
-    background: rgba(255, 255, 255, 0.98) !important;
-    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.15);
-    border-bottom-color: rgba(0, 0, 0, 0.1);
-}
-.navbar-brand {
-    font-family: var(--font-heading);
-    font-size: 2.2rem;
-    font-weight: 700;
-    color: var(--text-dark) !important;
-    transition: all var(--transition-normal);
-}
-.navbar-brand:hover {
-    transform: scale(1.05);
-    color: var(--primary-blue) !important;
-}
-.nav-link {
-    color: var(--text-dark) !important;
-    font-weight: 500;
-    margin: 0 var(--spacing-sm);
-    padding: var(--spacing-sm) var(--spacing-lg) !important;
-    border-radius: var(--border-radius-sm);
-    transition: all var(--transition-normal);
-    position: relative;
-    overflow: hidden;
-}
-.nav-link::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: var(--primary-blue);
-    transition: left var(--transition-normal);
-    z-index: -1;
-    opacity: 0.1;
-}
-.nav-link:hover::before,
-.nav-link.active::before {
-    left: 0;
-}
-.nav-link:hover,
-.nav-link.active {
-    color: var(--primary-blue) !important;
-    transform: translateY(-2px);
-}
+
 .btn-modern {
     padding: var(--spacing-md) var(--spacing-xl);
     font-weight: 600;
@@ -677,12 +623,7 @@
     .card-body {
         padding: var(--spacing-md);
     }
-    .navbar-brand {
-        font-size: 1.8rem;
-    }
-    .nav-link {
-        padding: var(--spacing-sm) !important;
-    }
+
     .form-modern {
         padding: var(--spacing-lg);
     }
