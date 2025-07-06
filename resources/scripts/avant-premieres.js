@@ -1,5 +1,3 @@
-// Avant-Premières Page JavaScript
-
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize all components
     initFilterButtons();

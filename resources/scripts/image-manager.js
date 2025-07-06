@@ -1,4 +1,3 @@
-// FESPACO 2025 - Gestionnaire d'images automatique
 class ImageManager {
     constructor() {
         this.imageCache = new Map();
