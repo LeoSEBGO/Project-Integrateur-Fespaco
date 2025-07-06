@@ -15,8 +15,6 @@
     <link rel="stylesheet" href="../resources/styles/components.css">
     <link rel="stylesheet" href="../resources/styles/effects.css">
     <link rel="stylesheet" href="../resources/styles/contact.css">
-    <!-- Google Maps API -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap" async defer></script>
 </head>
 <body>
     <!-- Navigation -->
@@ -26,9 +24,8 @@
                 <img src="../resources/assets/images/logo/Logo-FESPACO-2025-02.png" alt="FESPACO 2025" class="navbar-logo me-2">
                 <span class="fw-bold">FESPACO</span>
             </a>
-            
+
             <div class="d-flex d-lg-none align-items-center">
-                <a href="../index.html#billets" class="btn btn-outline-primary btn-sm me-2">Billets</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -39,18 +36,15 @@
                     <li class="nav-item"><a class="nav-link" href="../index.html">Accueil</a></li>
                     <li class="nav-item"><a class="nav-link" href="apropos.html">À propos</a></li>
                     <li class="nav-item"><a class="nav-link" href="evenements.html">Événements</a></li>
+                    <li class="nav-item"><a class="nav-link" href="avant-premieres.html">Avant-premières</a></li>
                     <li class="nav-item"><a class="nav-link" href="partenaires.html">Partenaires</a></li>
                     <li class="nav-item"><a class="nav-link active" href="contact.html">Contact</a></li>
                 </ul>
-                <div class="d-none d-lg-flex gap-2">
-                    <a href="../index.html#billets" class="btn btn-outline-primary">Acheter Billets</a>
-                    <a href="../index.html#acreditation" class="btn btn-primary">Accréditation</a>
-                </div>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero Section Contact -->
     <section class="hero-section-contact">
         <div class="container">
             <div class="row align-items-center min-vh-100">
@@ -59,28 +53,29 @@
                         Contactez-nous
                     </h1>
                     <p class="lead text-light mb-5 fade-in-up delay-1">
-                        Nous sommes à votre écoute pour toute question sur le festival
+                        Nous sommes là pour répondre à toutes vos questions sur le FESPACO 2025
                     </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Info -->
-    <section class="py-5">
+    <!-- Section principale de contact -->
+    <section class="py-5 bg-white">
         <div class="container">
-            <div class="row g-4">
+            <!-- Cartes de contact -->
+            <div class="row g-4 mb-5">
                 <div class="col-lg-4 col-md-6">
                     <div class="contact-card hover-3d">
                         <div class="card-body text-center">
                             <div class="contact-icon mb-4">
                                 <i class="fas fa-map-marker-alt fa-3x text-warning"></i>
                             </div>
-                            <h5>Adresse</h5>
+                            <h5>Notre Adresse</h5>
                             <p class="text-muted">
-                                Secrétariat Permanent du FESPACO<br>
-                                01 BP 2505 Ouagadougou 01<br>
-                                Burkina Faso
+                                Centre National de la Cinématographie<br>
+                                Avenue de l'Indépendance<br>
+                                Ouagadougou, Burkina Faso
                             </p>
                         </div>
                     </div>
@@ -93,9 +88,8 @@
                             </div>
                             <h5>Téléphone</h5>
                             <p class="text-muted">
-                                +226 25 30 75 38<br>
-                                +226 25 30 75 39<br>
-                                Fax: +226 25 31 25 09
+                                <a href="tel:+22625300000">+226 25 30 00 00</a><br>
+                                Lun-Ven: 8h-17h
                             </p>
                         </div>
                     </div>
@@ -108,10 +102,156 @@
                             </div>
                             <h5>Email</h5>
                             <p class="text-muted">
-                                info@fespaco.bf<br>
-                                contact@fespaco.bf<br>
-                                presse@fespaco.bf
+                                <a href="mailto:contact@fespaco.bf">contact@fespaco.bf</a><br>
+                                Réponse sous 24h
                             </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <!-- Formulaire de contact -->
+                <div class="col-lg-8 mb-5">
+                    <div class="contact-form-3d">
+                        <h3 class="form-title">Envoyez-nous un message</h3>
+                        <p class="form-subtitle">Remplissez le formulaire ci-dessous et nous vous répondrons dans les plus brefs délais.</p>
+                        
+                        <form id="contactForm" novalidate>
+                            <div class="row g-4">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="firstName" class="form-label">Prénom *</label>
+                                        <input type="text" class="form-control" id="firstName" name="firstName" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="lastName" class="form-label">Nom *</label>
+                                        <input type="text" class="form-control" id="lastName" name="lastName" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="email" class="form-label">Email *</label>
+                                        <input type="email" class="form-control" id="email" name="email" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="phone" class="form-label">Téléphone</label>
+                                        <input type="tel" class="form-control" id="phone" name="phone">
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label for="subject" class="form-label">Sujet *</label>
+                                        <select class="form-select" id="subject" name="subject" required>
+                                            <option value="">Choisissez un sujet</option>
+                                            <option value="general">Question générale</option>
+                                            <option value="participation">Participation au festival</option>
+                                            <option value="partnership">Partenariat</option>
+                                            <option value="media">Presse et médias</option>
+                                            <option value="technical">Support technique</option>
+                                            <option value="other">Autre</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label for="message" class="form-label">Message *</label>
+                                        <textarea class="form-control" id="message" name="message" rows="6" required placeholder="Décrivez votre demande..."></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="newsletter" name="newsletter">
+                                            <label class="form-check-label" for="newsletter">
+                                                Je souhaite recevoir les actualités du FESPACO par email
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="privacy" name="privacy" required>
+                                            <label class="form-check-label" for="privacy">
+                                                J'accepte que mes données soient traitées conformément à la politique de confidentialité *
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 text-center">
+                                    <button type="submit" class="btn btn-primary btn-lg px-5">
+                                        <i class="fas fa-paper-plane me-2"></i>Envoyer le message
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Informations de localisation -->
+                <div class="col-lg-4">
+                    <div class="location-info">
+                        <div class="location-card hover-3d mb-4">
+                            <div class="card-body">
+                                <div class="location-icon mb-4">
+                                    <i class="fas fa-building fa-3x text-warning"></i>
+                                </div>
+                                <h4>Centre National de la Cinématographie</h4>
+                                <p class="location-address text-muted">
+                                    Avenue de l'Indépendance<br>
+                                    Secteur 1, Ouagadougou<br>
+                                    Burkina Faso
+                                </p>
+                                <div class="location-details">
+                                    <div class="detail-item">
+                                        <i class="fas fa-clock me-2"></i>
+                                        <span>Lundi - Vendredi: 8h00 - 17h00</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <i class="fas fa-calendar me-2"></i>
+                                        <span>Samedi: 9h00 - 12h00</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <i class="fas fa-info-circle me-2"></i>
+                                        <span>Fermé les dimanches et jours fériés</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="transport-info hover-3d">
+                            <div class="card-body">
+                                <h5><i class="fas fa-bus me-2 text-warning"></i>Comment s'y rendre</h5>
+                                <div class="transport-item">
+                                    <i class="fas fa-car me-2"></i>
+                                    <div>
+                                        <strong>En voiture</strong>
+                                        <p class="text-muted">Parking gratuit disponible sur place</p>
+                                    </div>
+                                </div>
+                                <div class="transport-item">
+                                    <i class="fas fa-bus me-2"></i>
+                                    <div>
+                                        <strong>En bus</strong>
+                                        <p class="text-muted">Lignes 1, 3 et 5 - Arrêt "Centre Cinéma"</p>
+                                    </div>
+                                </div>
+                                <div class="transport-item">
+                                    <i class="fas fa-taxi me-2"></i>
+                                    <div>
+                                        <strong>En taxi</strong>
+                                        <p class="text-muted">Compter environ 2000 FCFA depuis le centre-ville</p>
+                                    </div>
+                                </div>
+                                <div class="transport-item">
+                                    <i class="fas fa-walking me-2"></i>
+                                    <div>
+                                        <strong>À pied</strong>
+                                        <p class="text-muted">15 minutes depuis la Place de la Nation</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -119,111 +259,33 @@
         </div>
     </section>
 
-    <!-- Contact Form -->
+    <!-- Section carte Google Maps -->
     <section class="py-5 bg-light">
         <div class="container">
-            <div class="row">
-                <div class="col-12 text-center mb-5">
-                    <h2 class="display-4 fw-bold">Envoyez-nous un Message</h2>
-                    <p class="lead text-muted">Remplissez le formulaire ci-dessous</p>
-                </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <form class="contact-form-3d">
-                        <div class="row g-4">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="firstName" class="form-label">Prénom *</label>
-                                    <input type="text" class="form-control" id="firstName" required>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="lastName" class="form-label">Nom *</label>
-                                    <input type="text" class="form-control" id="lastName" required>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="email" class="form-label">Email *</label>
-                                    <input type="email" class="form-control" id="email" required>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="phone" class="form-label">Téléphone</label>
-                                    <input type="tel" class="form-control" id="phone">
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="form-group">
-                                    <label for="subject" class="form-label">Sujet *</label>
-                                    <select class="form-select" id="subject" required>
-                                        <option value="">Choisissez un sujet</option>
-                                        <option value="information">Demande d'information</option>
-                                        <option value="participation">Participation au festival</option>
-                                        <option value="presse">Demande presse</option>
-                                        <option value="partenariat">Partenariat</option>
-                                        <option value="technique">Support technique</option>
-                                        <option value="autre">Autre</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="form-group">
-                                    <label for="message" class="form-label">Message *</label>
-                                    <textarea class="form-control" id="message" rows="6" required></textarea>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="newsletter">
-                                    <label class="form-check-label" for="newsletter">
-                                        Je souhaite recevoir la newsletter du FESPACO
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="col-12 text-center">
-                                <button type="submit" class="btn btn-primary btn-lg px-5">
-                                    <i class="fas fa-paper-plane me-2"></i>
-                                    Envoyer le Message
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Map Section -->
-    <section class="py-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 text-center mb-5">
-                    <h2 class="display-4 fw-bold">Localisation</h2>
-                    <p class="lead text-muted">Trouvez-nous à Ouagadougou</p>
+            <div class="row text-center mb-5">
+                <div class="col-12">
+                    <h2 class="display-4 fw-bold text-dark">Notre Localisation</h2>
+                    <p class="lead text-muted">Trouvez-nous facilement à Ouagadougou</p>
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-8">
-                    <div class="map-container">
-                        <div id="fespaco-map" class="interactive-map"></div>
+                <div class="col-12">
+                    <div class="google-map-container">
+                        <div id="google-map" class="google-map"></div>
                         <div class="map-overlay">
                             <div class="map-info-card">
                                 <div class="map-info-header">
-                                    <i class="fas fa-map-marker-alt text-primary"></i>
+                                    <i class="fas fa-map-marker-alt"></i>
                                     <h5>FESPACO</h5>
                                 </div>
                                 <div class="map-info-content">
-                                    <p><strong>Secrétariat Permanent du FESPACO</strong></p>
-                                    <p>01 BP 2505 Ouagadougou 01<br>Burkina Faso</p>
+                                    <p><strong>Centre National de la Cinématographie</strong></p>
+                                    <p>Avenue de l'Indépendance<br>Ouagadougou, Burkina Faso</p>
                                     <div class="map-actions">
-                                        <a href="https://maps.google.com/?q=Ouagadougou,Burkina+Faso" target="_blank" class="btn btn-sm btn-outline-primary">
+                                        <a href="https://maps.google.com/?q=12.3714,-1.5197" target="_blank" class="btn btn-sm btn-outline-primary">
                                             <i class="fas fa-directions me-1"></i>Itinéraire
                                         </a>
-                                        <a href="tel:+22625307538" class="btn btn-sm btn-outline-success">
+                                        <a href="tel:+22625300000" class="btn btn-sm btn-outline-success">
                                             <i class="fas fa-phone me-1"></i>Appeler
                                         </a>
                                     </div>
@@ -232,111 +294,57 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4">
-                    <div class="location-info">
-                        <div class="location-card">
-                            <div class="location-icon">
-                                <i class="fas fa-building fa-2x text-primary"></i>
-                            </div>
-                            <h4>Siège du FESPACO</h4>
-                            <p class="location-address">
-                                <i class="fas fa-map-marker-alt text-primary me-2"></i>
-                                Secrétariat Permanent du FESPACO<br>
-                                01 BP 2505 Ouagadougou 01<br>
-                                Burkina Faso
-                            </p>
-                            <div class="location-details">
-                                <div class="detail-item">
-                                    <i class="fas fa-clock text-primary me-2"></i>
-                                    <span>Lun-Ven: 8h-17h</span>
-                                </div>
-                                <div class="detail-item">
-                                    <i class="fas fa-phone text-primary me-2"></i>
-                                    <span>+226 25 30 75 38</span>
-                                </div>
-                                <div class="detail-item">
-                                    <i class="fas fa-envelope text-primary me-2"></i>
-                                    <span>info@fespaco.bf</span>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="transport-info">
-                            <h5>Comment s'y rendre</h5>
-                            <div class="transport-item">
-                                <i class="fas fa-car text-primary me-2"></i>
-                                <div>
-                                    <strong>En voiture</strong>
-                                    <p>Parking disponible sur place</p>
-                                </div>
-                            </div>
-                            <div class="transport-item">
-                                <i class="fas fa-bus text-primary me-2"></i>
-                                <div>
-                                    <strong>En bus</strong>
-                                    <p>Lignes 1, 3, 5 - Arrêt Centre-ville</p>
-                                </div>
-                            </div>
-                            <div class="transport-item">
-                                <i class="fas fa-taxi text-primary me-2"></i>
-                                <div>
-                                    <strong>En taxi</strong>
-                                    <p>Taxi disponible 24h/24</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
 
-    <!-- Social Media -->
-    <section class="py-5 bg-dark text-white">
+    <!-- Section réseaux sociaux -->
+    <section class="py-5 bg-white">
         <div class="container">
-            <div class="row">
-                <div class="col-12 text-center mb-5">
-                    <h2 class="display-4 fw-bold">Suivez-nous</h2>
-                    <p class="lead">Restez connectés avec le FESPACO</p>
+            <div class="row text-center mb-5">
+                <div class="col-12">
+                    <h2 class="display-4 fw-bold text-dark">Suivez-nous</h2>
+                    <p class="lead text-muted">Restez connectés avec le FESPACO sur nos réseaux sociaux</p>
                 </div>
             </div>
+            
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <div class="social-media-grid">
                         <div class="row g-4">
                             <div class="col-md-3">
-                                <a href="#" class="social-link-3d">
+                                <a href="https://facebook.com/fespaco" class="social-link-3d" target="_blank" rel="noopener">
                                     <div class="social-card">
                                         <i class="fab fa-facebook-f fa-3x"></i>
                                         <h5>Facebook</h5>
-                                        <p>10K followers</p>
+                                        <p>Actualités et événements</p>
                                     </div>
                                 </a>
                             </div>
                             <div class="col-md-3">
-                                <a href="#" class="social-link-3d">
+                                <a href="https://twitter.com/fespaco" class="social-link-3d" target="_blank" rel="noopener">
                                     <div class="social-card">
                                         <i class="fab fa-twitter fa-3x"></i>
                                         <h5>Twitter</h5>
-                                        <p>5K followers</p>
+                                        <p>Informations en temps réel</p>
                                     </div>
                                 </a>
                             </div>
                             <div class="col-md-3">
-                                <a href="#" class="social-link-3d">
+                                <a href="https://instagram.com/fespaco" class="social-link-3d" target="_blank" rel="noopener">
                                     <div class="social-card">
                                         <i class="fab fa-instagram fa-3x"></i>
                                         <h5>Instagram</h5>
-                                        <p>8K followers</p>
+                                        <p>Photos et vidéos</p>
                                     </div>
                                 </a>
                             </div>
                             <div class="col-md-3">
-                                <a href="#" class="social-link-3d">
+                                <a href="https://youtube.com/fespaco" class="social-link-3d" target="_blank" rel="noopener">
                                     <div class="social-card">
                                         <i class="fab fa-youtube fa-3x"></i>
                                         <h5>YouTube</h5>
-                                        <p>3K subscribers</p>
+                                        <p>Vidéos et interviews</p>
                                     </div>
                                 </a>
                             </div>
@@ -348,39 +356,49 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-dark text-white py-5">
+    <footer class="footer">
         <div class="container">
             <div class="row">
                 <div class="col-lg-4">
-                    <h5>FESPACO</h5>
-                    <p>Festival Panafricain du Cinéma et de la Télévision de Ouagadougou</p>
+                    <img src="../resources/assets/images/logo/Logo-FESPACO-2025-02.png" alt="FESPACO 2025" height="60" class="mb-3">
+                    <p>Le Festival Panafricain du Cinéma et de la Télévision de Ouagadougou, un événement majeur du cinéma africain.</p>
                 </div>
-                <div class="col-lg-4">
-                    <h5>Liens Rapides</h5>
+                <div class="col-lg-2">
+                    <h5>Liens rapides</h5>
                     <ul class="list-unstyled">
-                        <li><a href="../index.html" class="text-light">Accueil</a></li>
-                        <li><a href="apropos.html" class="text-light">À Propos</a></li>
-                        <li><a href="evenements.html" class="text-light">Événements</a></li>
-                        <li><a href="partenaires.html" class="text-light">Partenaires</a></li>
+                        <li><a href="../index.html">Accueil</a></li>
+                        <li><a href="apropos.html">À propos</a></li>
+                        <li><a href="evenements.html">Événements</a></li>
+                        <li><a href="partenaires.html">Partenaires</a></li>
                     </ul>
                 </div>
-                <div class="col-lg-4">
+                <div class="col-lg-3">
                     <h5>Contact</h5>
-                    <p>
-                        <i class="fas fa-envelope me-2"></i>sebgoleonardo3@gmail.com<br>
-                        <i class="fas fa-envelope me-2"></i>honorinesawadogo07@gmail.com
-                    </p>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-map-marker-alt me-2"></i>Ouagadougou, Burkina Faso</li>
+                        <li><i class="fas fa-phone me-2"></i>+226 XX XX XX XX</li>
+                        <li><i class="fas fa-envelope me-2"></i>contact@fespaco.bf</li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h5>Suivez-nous</h5>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
                 </div>
             </div>
-            <hr class="mt-4">
-            <div class="row">
-                <div class="col-12 text-center">
-                    <p>&copy; 2024 FESPACO. Tous droits réservés.</p>
-                </div>
+            <hr>
+            <div class="text-center">
+                <p>&copy; 2025 FESPACO. Tous droits réservés.</p>
             </div>
         </div>
     </footer>
 
+    <!-- Google Maps API -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=VOTRE_CLE_API&callback=initMap" async defer></script>    
     <!-- Bootstrap JS -->
     <script src="../resources/styles/bootstrap-5.3.7-dist/js/bootstrap.bundle.min.js"></script>
     <!-- Custom JS -->
@@ -388,158 +406,5 @@
     <script src="../resources/scripts/animations.js"></script>
     <script src="../resources/scripts/interactions.js"></script>
     <script src="../resources/scripts/contact.js"></script>
-    
-    <!-- Google Maps Script -->
-    <script>
-        function initMap() {
-            // Coordonnées du FESPACO à Ouagadougou (centre-ville)
-            const fespacoLocation = { lat: 12.3714, lng: -1.5197 };
-            
-            // Créer la carte
-            const map = new google.maps.Map(document.getElementById('fespaco-map'), {
-                zoom: 15,
-                center: fespacoLocation,
-                mapTypeId: google.maps.MapTypeId.ROADMAP,
-                styles: [
-                    {
-                        "featureType": "all",
-                        "elementType": "geometry",
-                        "stylers": [{"color": "#f5f5f5"}]
-                    },
-                    {
-                        "featureType": "water",
-                        "elementType": "geometry",
-                        "stylers": [{"color": "#c9c9c9"}]
-                    },
-                    {
-                        "featureType": "water",
-                        "elementType": "labels.text.fill",
-                        "stylers": [{"color": "#9e9e9e"}]
-                    },
-                    {
-                        "featureType": "poi",
-                        "elementType": "labels.text.fill",
-                        "stylers": [{"color": "#757575"}]
-                    },
-                    {
-                        "featureType": "road",
-                        "elementType": "geometry",
-                        "stylers": [{"color": "#ffffff"}]
-                    },
-                    {
-                        "featureType": "road",
-                        "elementType": "labels.text.fill",
-                        "stylers": [{"color": "#616161"}]
-                    },
-                    {
-                        "featureType": "road",
-                        "elementType": "labels.text.stroke",
-                        "stylers": [{"color": "#ffffff"}]
-                    },
-                    {
-                        "featureType": "transit",
-                        "elementType": "geometry",
-                        "stylers": [{"color": "#e5e5e5"}]
-                    },
-                    {
-                        "featureType": "landscape",
-                        "elementType": "geometry",
-                        "stylers": [{"color": "#fafafa"}]
-                    }
-                ]
-            });
-            
-            // Créer le marqueur personnalisé
-            const marker = new google.maps.Marker({
-                position: fespacoLocation,
-                map: map,
-                title: 'FESPACO - Secrétariat Permanent',
-                icon: {
-                    url: 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(`
-                        <svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="20" cy="20" r="18" fill="#2563EB" stroke="#ffffff" stroke-width="2"/>
-                            <circle cx="20" cy="20" r="8" fill="#ffffff"/>
-                            <circle cx="20" cy="20" r="4" fill="#2563EB"/>
-                        </svg>
-                    `),
-                    scaledSize: new google.maps.Size(40, 40),
-                    anchor: new google.maps.Point(20, 20)
-                },
-                animation: google.maps.Animation.DROP
-            });
-            
-            // Info window pour le marqueur
-            const infoWindow = new google.maps.InfoWindow({
-                content: `
-                    <div style="padding: 10px; max-width: 250px;">
-                        <h5 style="margin: 0 0 10px 0; color: #2563EB; font-weight: bold;">
-                            <i class="fas fa-film" style="margin-right: 5px;"></i>FESPACO
-                        </h5>
-                        <p style="margin: 0 0 5px 0; font-weight: bold;">Secrétariat Permanent</p>
-                        <p style="margin: 0 0 10px 0; color: #666;">
-                            01 BP 2505 Ouagadougou 01<br>Burkina Faso
-                        </p>
-                        <div style="text-align: center;">
-                            <a href="tel:+22625307538" style="color: #2563EB; text-decoration: none; margin-right: 10px;">
-                                <i class="fas fa-phone"></i> Appeler
-                            </a>
-                            <a href="mailto:info@fespaco.bf" style="color: #2563EB; text-decoration: none;">
-                                <i class="fas fa-envelope"></i> Email
-                            </a>
-                        </div>
-                    </div>
-                `
-            });
-            
-            // Ouvrir l'info window au clic sur le marqueur
-            marker.addListener('click', () => {
-                infoWindow.open(map, marker);
-            });
-            
-            // Ajouter des contrôles personnalisés
-            const mapControls = document.createElement('div');
-            mapControls.className = 'map-controls';
-            mapControls.innerHTML = `
-                <div class="map-control-btn" onclick="map.setZoom(map.getZoom() + 1)">
-                    <i class="fas fa-plus"></i>
-                </div>
-                <div class="map-control-btn" onclick="map.setZoom(map.getZoom() - 1)">
-                    <i class="fas fa-minus"></i>
-                </div>
-                <div class="map-control-btn" onclick="map.setCenter(fespacoLocation)">
-                    <i class="fas fa-crosshairs"></i>
-                </div>
-            `;
-            
-            map.controls[google.maps.ControlPosition.TOP_RIGHT].push(mapControls);
-            
-            // Animation du marqueur au chargement
-            setTimeout(() => {
-                marker.setAnimation(google.maps.Animation.BOUNCE);
-                setTimeout(() => {
-                    marker.setAnimation(null);
-                }, 2000);
-            }, 1000);
-        }
-        
-        // Gestion des erreurs de chargement de la carte
-        window.addEventListener('error', function(e) {
-            if (e.target.src && e.target.src.includes('maps.googleapis.com')) {
-                document.getElementById('fespaco-map').innerHTML = `
-                    <div class="map-fallback">
-                        <div class="map-fallback-content">
-                            <i class="fas fa-map-marker-alt fa-4x text-primary mb-3"></i>
-                            <h4>FESPACO - Ouagadougou</h4>
-                            <p>Secrétariat Permanent du FESPACO</p>
-                            <p class="text-muted">01 BP 2505 Ouagadougou 01, Burkina Faso</p>
-                            <a href="https://maps.google.com/?q=Ouagadougou,Burkina+Faso" target="_blank" class="btn btn-primary">
-                                <i class="fas fa-external-link-alt me-2"></i>Voir sur Google Maps
-                            </a>
-                        </div>
-                    </div>
-                `;
-            }
-        });
-    </script>
 </body>
 </html> 

@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="../resources/styles/main.css">
     <link rel="stylesheet" href="../resources/styles/components.css">
     <link rel="stylesheet" href="../resources/styles/effects.css">
+    <link rel="stylesheet" href="../resources/styles/evenements.css">
 </head>
 <body>
     <!-- Navigation -->
@@ -23,9 +24,8 @@
                 <img src="../resources/assets/images/logo/Logo-FESPACO-2025-02.png" alt="FESPACO 2025" class="navbar-logo me-2">
                 <span class="fw-bold">FESPACO</span>
             </a>
-            
+
             <div class="d-flex d-lg-none align-items-center">
-                <a href="../index.html#billets" class="btn btn-outline-primary btn-sm me-2">Billets</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -36,13 +36,10 @@
                     <li class="nav-item"><a class="nav-link" href="../index.html">Accueil</a></li>
                     <li class="nav-item"><a class="nav-link" href="apropos.html">À propos</a></li>
                     <li class="nav-item"><a class="nav-link active" href="evenements.html">Événements</a></li>
+                    <li class="nav-item"><a class="nav-link" href="avant-premieres.html">Avant-premières</a></li>
                     <li class="nav-item"><a class="nav-link" href="partenaires.html">Partenaires</a></li>
                     <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
                 </ul>
-                <div class="d-none d-lg-flex gap-2">
-                    <a href="../index.html#billets" class="btn btn-outline-primary">Acheter Billets</a>
-                    <a href="../index.html#acreditation" class="btn btn-primary">Accréditation</a>
-                </div>
             </div>
         </div>
     </nav>
@@ -69,12 +66,44 @@
         </div>
     </section>
 
+    <!-- Section Statistiques -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-3 col-6 mb-4">
+                    <div class="stat-card">
+                        <span class="stat-number">150+</span>
+                        <div class="stat-label">Films</div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 mb-4">
+                    <div class="stat-card">
+                        <span class="stat-number">8</span>
+                        <div class="stat-label">Jours</div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 mb-4">
+                    <div class="stat-card">
+                        <span class="stat-number">25+</span>
+                        <div class="stat-label">Pays</div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 mb-4">
+                    <div class="stat-card">
+                        <span class="stat-number">50K+</span>
+                        <div class="stat-label">Spectateurs</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Programme Section -->
-    <section class="py-5">
+    <section class="py-5 bg-white">
         <div class="container">
             <div class="row">
                 <div class="col-12 text-center mb-5">
-                    <h2 class="display-4 fw-bold">Programme des Événements</h2>
+                    <h2 class="display-4 fw-bold text-dark">Programme des Événements</h2>
                     <p class="lead text-muted">Une semaine intense de célébration du cinéma africain</p>
                 </div>
             </div>
@@ -104,13 +133,14 @@
 
             <!-- Événements -->
             <div class="row g-4" id="events-container">
-                <!-- Jour 1 -->
+                <!-- Jour 1 - Cérémonie d'ouverture -->
                 <div class="col-lg-4 col-md-6 event-card" data-category="ceremonie">
                     <div class="card h-100 shadow-sm hover-3d">
                         <div class="card-header bg-primary text-white">
                             <h5 class="card-title mb-0">
                                 <i class="fas fa-star me-2"></i>Cérémonie d'Ouverture
                             </h5>
+                            <span class="status-badge status-upcoming">À venir</span>
                         </div>
                         <div class="card-body">
                             <p class="card-text">
@@ -119,17 +149,23 @@
                                 <strong>Lieu:</strong> Palais des Sports de Ouagadougou
                             </p>
                             <p>Grande cérémonie d'ouverture avec spectacles culturels et présentation des films en compétition.</p>
+                            <div class="mt-3">
+                                <a href="#" class="btn btn-outline-primary btn-sm">
+                                    <i class="fas fa-info-circle me-1"></i>Plus d'infos
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Projection -->
+                <!-- Projection spéciale -->
                 <div class="col-lg-4 col-md-6 event-card" data-category="projection">
                     <div class="card h-100 shadow-sm hover-3d">
                         <div class="card-header bg-info text-white">
                             <h5 class="card-title mb-0">
                                 <i class="fas fa-play me-2"></i>Projection Spéciale
                             </h5>
+                            <span class="status-badge status-upcoming">À venir</span>
                         </div>
                         <div class="card-body">
                             <p class="card-text">
@@ -138,17 +174,23 @@
                                 <strong>Lieu:</strong> Cinéma Burkina
                             </p>
                             <p>Projection du film d'ouverture "Yeelen" d'Souleymane Cissé, chef-d'œuvre du cinéma africain.</p>
+                            <div class="mt-3">
+                                <a href="#" class="btn btn-outline-info btn-sm">
+                                    <i class="fas fa-ticket-alt me-1"></i>Réserver
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Atelier -->
+                <!-- Atelier réalisation -->
                 <div class="col-lg-4 col-md-6 event-card" data-category="workshop">
                     <div class="card h-100 shadow-sm hover-3d">
                         <div class="card-header bg-success text-white">
                             <h5 class="card-title mb-0">
                                 <i class="fas fa-chalkboard-teacher me-2"></i>Atelier Réalisation
                             </h5>
+                            <span class="status-badge status-upcoming">À venir</span>
                         </div>
                         <div class="card-body">
                             <p class="card-text">
@@ -157,17 +199,23 @@
                                 <strong>Lieu:</strong> Institut Français
                             </p>
                             <p>Atelier de formation sur les techniques de réalisation cinématographique avec des professionnels.</p>
+                            <div class="mt-3">
+                                <a href="#" class="btn btn-outline-success btn-sm">
+                                    <i class="fas fa-user-plus me-1"></i>S'inscrire
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Compétition -->
+                <!-- Compétition officielle -->
                 <div class="col-lg-4 col-md-6 event-card" data-category="competition">
                     <div class="card h-100 shadow-sm hover-3d">
                         <div class="card-header bg-danger text-white">
                             <h5 class="card-title mb-0">
                                 <i class="fas fa-trophy me-2"></i>Compétition Officielle
                             </h5>
+                            <span class="status-badge status-upcoming">À venir</span>
                         </div>
                         <div class="card-body">
                             <p class="card-text">
@@ -176,17 +224,23 @@
                                 <strong>Lieu:</strong> Cinéma Sanyon
                             </p>
                             <p>Projections des films en compétition pour l'Étalon d'Or de Yennenga.</p>
+                            <div class="mt-3">
+                                <a href="#" class="btn btn-outline-danger btn-sm">
+                                    <i class="fas fa-ticket-alt me-1"></i>Réserver
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Plus d'événements -->
+                <!-- Masterclass -->
                 <div class="col-lg-4 col-md-6 event-card" data-category="workshop">
                     <div class="card h-100 shadow-sm hover-3d">
                         <div class="card-header bg-success text-white">
                             <h5 class="card-title mb-0">
                                 <i class="fas fa-video me-2"></i>Masterclass
                             </h5>
+                            <span class="status-badge status-upcoming">À venir</span>
                         </div>
                         <div class="card-body">
                             <p class="card-text">
@@ -195,16 +249,23 @@
                                 <strong>Lieu:</strong> Université de Ouagadougou
                             </p>
                             <p>Masterclass avec des réalisateurs africains renommés sur l'évolution du cinéma africain.</p>
+                            <div class="mt-3">
+                                <a href="#" class="btn btn-outline-success btn-sm">
+                                    <i class="fas fa-user-plus me-1"></i>S'inscrire
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
 
+                <!-- Cérémonie de clôture -->
                 <div class="col-lg-4 col-md-6 event-card" data-category="ceremonie">
                     <div class="card h-100 shadow-sm hover-3d">
                         <div class="card-header bg-warning text-dark">
                             <h5 class="card-title mb-0">
                                 <i class="fas fa-award me-2"></i>Cérémonie de Clôture
                             </h5>
+                            <span class="status-badge status-upcoming">À venir</span>
                         </div>
                         <div class="card-body">
                             <p class="card-text">
@@ -213,6 +274,11 @@
                                 <strong>Lieu:</strong> Palais des Sports
                             </p>
                             <p>Cérémonie de remise des prix et clôture officielle du festival avec spectacles.</p>
+                            <div class="mt-3">
+                                <a href="#" class="btn btn-outline-warning btn-sm">
+                                    <i class="fas fa-info-circle me-1"></i>Plus d'infos
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -220,12 +286,66 @@
         </div>
     </section>
 
-    <!-- Section Salles -->
+    <!-- Timeline des événements -->
     <section class="py-5 bg-light">
         <div class="container">
             <div class="row">
                 <div class="col-12 text-center mb-5">
-                    <h2 class="display-4 fw-bold">Salles de Projection</h2>
+                    <h2 class="display-4 fw-bold text-dark">Timeline du Festival</h2>
+                    <p class="lead text-muted">Découvrez le déroulement jour par jour</p>
+                </div>
+            </div>
+            
+            <div class="timeline-container">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h5><i class="fas fa-calendar-day me-2 text-primary"></i>Jour 1 - 26 Février</h5>
+                        <p><strong>Cérémonie d'ouverture</strong> - Lancement officiel du festival avec spectacles culturels et présentation des films en compétition.</p>
+                        <span class="badge bg-primary">20h00 - Palais des Sports</span>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h5><i class="fas fa-calendar-day me-2 text-info"></i>Jour 2 - 27 Février</h5>
+                        <p><strong>Projection spéciale</strong> - "Yeelen" de Souleymane Cissé, chef-d'œuvre du cinéma africain.</p>
+                        <span class="badge bg-info">15h00 - Cinéma Burkina</span>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h5><i class="fas fa-calendar-day me-2 text-success"></i>Jour 3 - 28 Février</h5>
+                        <p><strong>Atelier réalisation</strong> - Formation sur les techniques de réalisation cinématographique.</p>
+                        <span class="badge bg-success">09h00 - Institut Français</span>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h5><i class="fas fa-calendar-day me-2 text-danger"></i>Jour 4 - 1 Mars</h5>
+                        <p><strong>Compétition officielle</strong> - Projections des films en compétition pour l'Étalon d'Or.</p>
+                        <span class="badge bg-danger">18h00 - Cinéma Sanyon</span>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h5><i class="fas fa-calendar-day me-2 text-warning"></i>Jour 5 - 5 Mars</h5>
+                        <p><strong>Cérémonie de clôture</strong> - Remise des prix et clôture officielle du festival.</p>
+                        <span class="badge bg-warning text-dark">21h00 - Palais des Sports</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Salles -->
+    <section class="py-5 bg-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="display-4 fw-bold text-dark">Salles de Projection</h2>
                     <p class="lead text-muted">Découvrez les lieux emblématiques du festival</p>
                 </div>
             </div>
@@ -236,6 +356,7 @@
                             <i class="fas fa-building fa-3x text-warning mb-3"></i>
                             <h5>Palais des Sports</h5>
                             <p>Salle principale - 2000 places</p>
+                            <small class="text-muted">Cérémonies d'ouverture et de clôture</small>
                         </div>
                     </div>
                 </div>
@@ -245,6 +366,7 @@
                             <i class="fas fa-film fa-3x text-warning mb-3"></i>
                             <h5>Cinéma Burkina</h5>
                             <p>Salle historique - 300 places</p>
+                            <small class="text-muted">Projections spéciales et rétrospectives</small>
                         </div>
                     </div>
                 </div>
@@ -254,6 +376,7 @@
                             <i class="fas fa-university fa-3x text-warning mb-3"></i>
                             <h5>Institut Français</h5>
                             <p>Salle culturelle - 150 places</p>
+                            <small class="text-muted">Ateliers et masterclass</small>
                         </div>
                     </div>
                 </div>
@@ -263,6 +386,32 @@
                             <i class="fas fa-graduation-cap fa-3x text-warning mb-3"></i>
                             <h5>Cinéma Sanyon</h5>
                             <p>Salle moderne - 400 places</p>
+                            <small class="text-muted">Compétition officielle</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Call-to-Action -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="cta-card">
+                        <h3 class="mb-4">
+                            <i class="fas fa-ticket-alt me-2 text-primary"></i>
+                            Prêt à vivre l'expérience FESPACO ?
+                        </h3>
+                        <p class="lead mb-4">Réservez vos billets dès maintenant et ne manquez aucun événement du festival !</p>
+                        <div class="d-flex flex-wrap gap-3 justify-content-center">
+                            <a href="../index.html#billets" class="btn btn-primary btn-lg">
+                                <i class="fas fa-shopping-cart me-2"></i>Acheter des Billets
+                            </a>
+                            <a href="../index.html#acreditation" class="btn btn-outline-primary btn-lg">
+                                <i class="fas fa-id-card me-2"></i>Demander Accréditation
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -271,37 +420,43 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-dark text-white py-5">
+    <footer class="footer">
         <div class="container">
             <div class="row">
                 <div class="col-lg-4">
-                    <h5>FESPACO</h5>
-                    <p>Festival Panafricain du Cinéma et de la Télévision de Ouagadougou</p>
+                    <img src="../resources/assets/images/logo/Logo-FESPACO-2025-02.png" alt="FESPACO 2025" height="60" class="mb-3">
+                    <p>Le Festival Panafricain du Cinéma et de la Télévision de Ouagadougou, un événement majeur du cinéma africain.</p>
                 </div>
-                <div class="col-lg-4">
-                    <h5>Liens Rapides</h5>
+                <div class="col-lg-2">
+                    <h5>Liens rapides</h5>
                     <ul class="list-unstyled">
-                        <li><a href="../index.html" class="text-light">Accueil</a></li>
-                        <li><a href="apropos.html" class="text-light">À Propos</a></li>
-                        <li><a href="partenaires.html" class="text-light">Partenaires</a></li>
-                        <li><a href="contact.html" class="text-light">Contact</a></li>
+                        <li><a href="../index.html">Accueil</a></li>
+                        <li><a href="apropos.html">À propos</a></li>
+                        <li><a href="evenements.html">Événements</a></li>
+                        <li><a href="partenaires.html">Partenaires</a></li>
                     </ul>
                 </div>
-                <div class="col-lg-4">
+                <div class="col-lg-3">
+                    <h5>Contact</h5>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-map-marker-alt me-2"></i>Ouagadougou, Burkina Faso</li>
+                        <li><i class="fas fa-phone me-2"></i>+226 XX XX XX XX</li>
+                        <li><i class="fas fa-envelope me-2"></i>contact@fespaco.bf</li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
                     <h5>Suivez-nous</h5>
                     <div class="social-links">
-                        <a href="#" class="text-light me-3"><i class="fab fa-facebook fa-2x"></i></a>
-                        <a href="#" class="text-light me-3"><i class="fab fa-twitter fa-2x"></i></a>
-                        <a href="#" class="text-light me-3"><i class="fab fa-instagram fa-2x"></i></a>
-                        <a href="#" class="text-light"><i class="fab fa-youtube fa-2x"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
             </div>
-            <hr class="mt-4">
-            <div class="row">
-                <div class="col-12 text-center">
-                    <p>&copy; 2024 FESPACO. Tous droits réservés.</p>
-                </div>
+            <hr>
+            <div class="text-center">
+                <p>&copy; 2025 FESPACO. Tous droits réservés.</p>
             </div>
         </div>
     </footer>
@@ -312,5 +467,6 @@
     <script src="../resources/scripts/main.js"></script>
     <script src="../resources/scripts/animations.js"></script>
     <script src="../resources/scripts/interactions.js"></script>
+    <script src="../resources/scripts/evenements.js"></script>
 </body>
 </html> 

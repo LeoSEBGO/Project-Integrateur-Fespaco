@@ -1,5 +1,3 @@
-/* FESPACO - JavaScript pour la page À propos */
-
 class FespacoAboutPage {
     constructor() {
         this.init();
