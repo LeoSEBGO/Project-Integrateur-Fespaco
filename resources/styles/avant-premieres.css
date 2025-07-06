@@ -1,45 +1,80 @@
 .hero-section {
     position: relative;
-    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-    color: white;
     overflow: hidden;
+    height: 100vh;
 }
-.hero-background {
+.hero-slider {
     position: relative;
-    background-image: url('../images/slide/Couverture-1.jpeg');
+    width: 100%;
+    height: 100%;
+}
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+.slide.active {
+    opacity: 1;
+}
+.slide-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
 }
-.hero-background::before {
+.slide-background::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(30, 60, 114, 0.8);
+    background: linear-gradient(45deg, rgba(37, 99, 235, 0.8) 0%, rgba(13, 148, 136, 0.8) 100%);
     z-index: 1;
 }
-.hero-section .container {
+.slide-content {
     position: relative;
     z-index: 2;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.hero-content {
+    color: white;
+    text-align: left;
 }
 .hero-title {
     font-size: 3.5rem;
     font-weight: 700;
     margin-bottom: 1rem;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    animation: fadeInUp 1s ease-out;
 }
 .hero-subtitle {
     font-size: 1.25rem;
     margin-bottom: 2rem;
     opacity: 0.9;
+    animation: fadeInUp 1s ease-out 0.3s both;
 }
 .hero-stats {
     display: flex;
     gap: 2rem;
     margin-top: 2rem;
+    animation: fadeInUp 1s ease-out 0.6s both;
+}
+.hero-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+    animation: fadeInUp 1s ease-out 0.6s both;
 }
 .stat-item {
     text-align: center;
@@ -424,4 +459,111 @@
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
+}
+.slider-controls {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    z-index: 10;
+    pointer-events: none;
+}
+.slider-btn {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    pointer-events: all;
+    backdrop-filter: blur(10px);
+}
+.slider-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.1);
+}
+.prev-btn {
+    left: 20px;
+}
+.next-btn {
+    right: 20px;
+}
+.slider-indicators {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 10;
+}
+.indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.indicator.active {
+    background: white;
+    transform: scale(1.2);
+}
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.video-container {
+    position: relative;
+    width: 100%;
+    background: #000;
+    border-radius: 0 0 var(--border-radius-md) var(--border-radius-md);
+    overflow: hidden;
+}
+.video-container video {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 70vh;
+    object-fit: contain;
+}
+.modal-xl {
+    max-width: 90vw;
+}
+.modal-content {
+    border: none;
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-xl);
+}
+.modal-header {
+    background: var(--gradient-primary);
+    color: white;
+    border: none;
+    padding: var(--spacing-lg);
+}
+.modal-title {
+    font-weight: 600;
+    margin: 0;
+}
+.btn-close {
+    filter: invert(1);
+    opacity: 0.8;
+    transition: opacity var(--transition-normal);
+}
+.btn-close:hover {
+    opacity: 1;
+}
+.modal-body {
+    padding: 0;
 } 

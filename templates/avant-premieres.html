@@ -17,6 +17,9 @@
     <!-- Custom CSS -->
     <link href="../resources/styles/main.css" rel="stylesheet">
     <link href="../resources/styles/avant-premieres.css" rel="stylesheet">
+    
+    <!-- Custom JavaScript -->
+    <script src="../resources/scripts/avant-premieres.js" defer></script>
 </head>
 <body>
     <!-- Navigation -->
@@ -46,31 +49,74 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero Section avec Slider -->
     <section class="hero-section">
-        <div class="hero-background">
-            <div class="container">
-                <div class="row align-items-center min-vh-100">
-                    <div class="col-lg-8">
-                        <h1 class="hero-title">Films en Avant-Premières</h1>
-                        <p class="hero-subtitle">Découvrez en exclusivité les films qui feront sensation au FESPACO 2025</p>
-                        <div class="hero-stats">
-                            <div class="stat-item">
-                                <span class="stat-number">25</span>
-                                <span class="stat-label">Films</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-number">15</span>
-                                <span class="stat-label">Pays</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-number">8</span>
-                                <span class="stat-label">Jours</span>
+        <div class="hero-slider">
+            <!-- Slide 1 -->
+            <div class="slide active" data-theme="teal">
+                <div class="slide-background" style="background-image: url('../resources/assets/images/slide/Couverture-2.jpeg');"></div>
+                <div class="slide-content">
+                    <div class="container">
+                        <div class="row align-items-center min-vh-100">
+                            <div class="col-lg-8">
+                                <div class="hero-content">
+                                    <h1 class="hero-title">Exclusivités Cinématographiques</h1>
+                                    <p class="hero-subtitle">Les premières projections des œuvres les plus attendues du continent</p>
+                                    <div class="hero-actions">
+                                        <a href="#films" class="btn btn-primary btn-lg">
+                                            <i class="fas fa-film me-2"></i>Découvrir les Films
+                                        </a>
+                                        <a href="#programme" class="btn btn-outline-light btn-lg">
+                                            <i class="fas fa-calendar me-2"></i>Programme
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
+            <!-- Slide 2 -->
+            <div class="slide" data-theme="coral">
+                <div class="slide-background" style="background-image: url('../resources/assets/images/slide/Couverture-3.jpeg');"></div>
+                <div class="slide-content">
+                    <div class="container">
+                        <div class="row align-items-center min-vh-100">
+                            <div class="col-lg-8">
+                                <div class="hero-content">
+                                    <h1 class="hero-title">Révélations du Festival</h1>
+                                    <p class="hero-subtitle">Soyez les premiers à découvrir les talents émergents du cinéma africain</p>
+                                    <div class="hero-actions">
+                                        <a href="#nouveautes" class="btn btn-primary btn-lg">
+                                            <i class="fas fa-star me-2"></i>Nouveautés
+                                        </a>
+                                        <a href="#reservation" class="btn btn-outline-light btn-lg">
+                                            <i class="fas fa-ticket-alt me-2"></i>Réserver
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slider Controls -->
+        <div class="slider-controls">
+            <button class="slider-btn prev-btn" onclick="previousSlide()">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="slider-btn next-btn" onclick="nextSlide()">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+
+        <!-- Slider Indicators -->
+        <div class="slider-indicators">
+            <span class="indicator" onclick="currentSlide(1)"></span>
+            <span class="indicator" onclick="currentSlide(2)"></span>
         </div>
     </section>
 
@@ -527,5 +573,27 @@
     
     <!-- Custom JS -->
     <script src="../resources/scripts/avant-premieres.js"></script>
+
+    <!-- Modal Vidéo Bande-annonce -->
+    <div class="modal fade" id="trailerModal" tabindex="-1" aria-labelledby="trailerModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="trailerModalLabel">
+                        <i class="fas fa-play-circle me-2"></i>Bande-annonce FESPACO 2025
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-0">
+                    <div class="video-container">
+                        <video id="trailerVideo" controls preload="metadata" class="w-100">
+                            <source src="https://fespaco.bf/wp-content/uploads/2025/01/Fespaco27Yelenga-4K_cinema.mp4" type="video/mp4">
+                            Votre navigateur ne supporte pas la lecture de vidéos.
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html> 
