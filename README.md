@@ -36,9 +36,6 @@ Project-Integrateur-Fespaco/
 │       ├── images/         # Images du festival
 │       ├── videos/         # Vidéos promotionnelles
 │       └── icons/          # Icônes et logos
-└── .github/
-    └── workflows/
-        └── ci-cd.yml       # Configuration GitHub Actions
 ```
 
 ## Technologies Utilisées
