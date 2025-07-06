@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FESPACO 2025 - Festival Panafricain du Cinéma et de la Télévision</title>
+    <title>FESPACO - Festival Panafricain du Cinéma et de la Télévision</title>
     <meta name="description" content="Le plus grand festival de cinéma africain. Découvrez les films, événements et actualités du FESPACO 2025 à Ouagadougou, Burkina Faso.">
     
     <!-- Favicon -->
@@ -13,7 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <!-- CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="resources/styles/bootstrap-5.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="resources/styles/main.css">
     <link rel="stylesheet" href="resources/styles/components.css">
@@ -480,8 +480,7 @@
                 </div>
             </div>
         </section>
-
-        <!-- Partners Section */
+        
         <section class="partners-section">
             <div class="container">
                 <h2 class="section-title text-center mb-5">Nos Partenaires et Sponsors</h2>
@@ -512,7 +511,7 @@
                     </div>
                 </div>
                 <div class="text-center mt-5">
-                    <a href="partenaires.html" class="btn btn-outline-primary btn-lg">
+                    <a href="templates/partenaires.html" class="btn btn-outline-primary btn-lg">
                         <i class="fas fa-handshake me-2"></i>Voir tous nos partenaires
                     </a>
                 </div>
@@ -658,15 +657,15 @@
                     <ul class="footer-links">
                         <li><a href="#billets">Acheter des billets</a></li>
                         <li><a href="#acreditation">Accréditation</a></li>
-                        <li><a href="evenements.html">Programme</a></li>
-                        <li><a href="partenaires.html">Devenir partenaire</a></li>
+                        <li><a href="templates/evenements.html">Programme</a></li>
+                        <li><a href="templates/partenaires.html">Devenir partenaire</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-3 mb-4">
                     <h6>Prendre contact</h6>
                     <p>Une question ou un commentaire ?<br>
                     Nous serions ravis de vous entendre</p>
-                    <a href="contact.html" class="btn btn-outline-primary">
+                    <a href="templates/contact.html" class="btn btn-outline-primary">
                         <i class="fas fa-envelope me-2"></i>Contactez nous
                     </a>
                 </div>
@@ -689,7 +688,28 @@
     </footer>
 
     <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../resources/scripts/index.js"></script>
+    <script src="resources/styles/bootstrap-5.3.7-dist/js/bootstrap.bundle.min.js"></script>
+    <script src="resources/scripts/index.js"></script>
+    
+    <!-- Gestion d'erreur pour les scripts -->
+    <script>
+        // Gestion d'erreur pour Bootstrap
+        window.addEventListener('error', function(e) {
+            if (e.target.src && e.target.src.includes('bootstrap')) {
+                console.warn('Bootstrap local n\'a pas pu être chargé, chargement depuis un CDN alternatif...');
+                // Charger depuis un CDN alternatif
+                const script = document.createElement('script');
+                script.src = 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/js/bootstrap.bundle.min.js';
+                document.head.appendChild(script);
+            }
+        });
+        
+        // Gestion d'erreur pour le script index.js
+        window.addEventListener('error', function(e) {
+            if (e.target.src && e.target.src.includes('index.js')) {
+                console.warn('Le script index.js n\'a pas pu être chargé');
+            }
+        });
+    </script>
 </body>
 </html> 
