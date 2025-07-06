@@ -84,12 +84,12 @@ open templates/index.html
 
 ## 👥 Équipe de Développement
 
-| Nom               | Rôle                 |  Pages Assignées             |
-|-------------------|----------------------|------------------------------|
-| SAWADOGO Honorine | Developpement        | Accueil, À Propos            |
-|                   | Receuille des ressources, images et videos          |
-| SEBGO Leonard     | Developpement        | Partenaires, Contact         |
-|                   | JavaScript Developer | Événements, Effets 3D        |
+| Nom               | Rôle                 |  Pages Assignées                |
+|-------------------|----------------------|---------------------------------|
+| SAWADOGO Honorine | Developpement        | Accueil, À Propos, Événements   |
+|                   | Receuille des ressources, images et videos             |
+| SEBGO Leonard     | Developpement        | Partenaires, Contact,           |
+|                   | JavaScript Developer | , Effets 3D, avant prémières    |
 
 ## Workflow de Développement
 
@@ -149,4 +149,4 @@ Pour toute question ou suggestion concernant ce projet :
 - Communauté open source pour les outils utilisés
 ---
 
-*Développé avec ❤️ pour promouvoir le cinéma africain* 
+*Développé avec coeur pour promouvoir le cinéma africain* 
